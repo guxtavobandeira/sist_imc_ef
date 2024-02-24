@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24/02/2024 às 03:15
+-- Tempo de geração: 24/02/2024 às 23:29
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -29,17 +29,24 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
-  `nome` varchar(140) DEFAULT NULL,
+  `senha` varchar(255) NOT NULL,
   `email` varchar(140) NOT NULL,
-  `senha` varchar(16) NOT NULL
+  `nome` varchar(140) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`) VALUES
-(1, 'usuario de Teste', 'teste@teste.com', 'teste');
+INSERT INTO `usuarios` (`id`, `senha`, `email`, `nome`) VALUES
+(3, '$2y$10$NHnf9tKt/T3mJPiQGMiowO0UKa8ZLhaQrqVvnXcCocZ77ixThxKXS', 'joao@joao.com', ''),
+(4, '$2y$10$zLv6zDs.LzFcLmhmahmt5OPs/a3nv.PJ4szj1CvGNNIAu6RHQgfwm', 'mateus@gmail.com', ''),
+(5, '$2y$10$ty9rKUeyb9eXXm/z4V3Hneb.Gw7cMwgDD9eKOJRGYGSoqx0NEecGi', 'teste@teste.com', ''),
+(6, '$2y$10$8s20dtPEJICt92upqfrhJuS8HqDyIsqxknph2ieubnii1x/rXUH8S', 'victoria@1.com', ''),
+(7, '$2y$10$Nrz.7pfFGAT01aCf/.Fj3.UnaOU.h4o2q6PM6wHI0.uKZk3reI0Ey', 'gustavo_@1.com', 'gustavo_@1.com'),
+(8, '$2y$10$LuCJy9w24RmBqXmV.DD9HuhJZfTsp6oip6zqpK3wNc/5bX1z0oZ2i', 'neymar@neymar.com', 'neymar'),
+(9, '$2y$10$jT8Q/Nj2.9ukkATeOpBZMOwffgGglKJU1cbJvVxgzL9Wnnbm1FOua', 'neymar@neymar.com', 'neymar'),
+(10, '$2y$10$O3GdMMNcEcZBm4WL0vQj5uyz3Uuhh8T3833gb/2NBwHM65bkWb4EK', 'neymar@neymar.com', 'neymar');
 
 --
 -- Índices para tabelas despejadas
@@ -59,7 +66,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
