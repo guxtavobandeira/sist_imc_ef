@@ -21,9 +21,9 @@ if(isset($_POST['email'])) {
 <body>
     Cadastrar Senha
     <form action="" method="post">
-        <input type="text" name="nome">
-        <input type="text" name="email">
-        <input type="text" name="senha">
+        <input type="text" name="nome" placeholder="nome" required>
+        <input type="text" name="email" placeholder="email" required>
+        <input type="text" name="senha" placeholder="senha" required>
         <button type="submit">Cadastrar senha</button>
         <br>
         Já tem uma conta? <br>
