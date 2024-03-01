@@ -6,7 +6,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['peso'])) {
         // Recebe o valor do campo 'peso' e converte para um número
         $peso = floatval($_POST['peso']);
-        
         // Insere o peso na tabela 'alunos'
         $query = "INSERT INTO alunos (peso_aluno) VALUES ('$peso')";
         if ($mysqli->query($query)) {
