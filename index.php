@@ -2,7 +2,7 @@
 
 if(isset($_POST['email'])) {
     
-    include('conexao.php');
+include('conexao.php');
 
     $nome = $_POST['nome'];
     $email = $_POST['email'];
@@ -21,9 +21,9 @@ if(isset($_POST['email'])) {
 <body>
     Cadastrar Senha
     <form action="" method="post">
-        <input type="text" name="nome" placeholder="nome" required>
-        <input type="text" name="email" placeholder="email" required>
-        <input type="text" name="senha" placeholder="senha" required>
+        <input type="text" name="nome">
+        <input type="text" name="email">
+        <input type="text" name="senha">
         <button type="submit">Cadastrar senha</button>
         <br>
         Já tem uma conta? <br>
