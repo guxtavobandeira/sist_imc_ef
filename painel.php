@@ -1,7 +1,5 @@
 <?php
-
 include('protect.php');
-
 ?>
 
 <!DOCTYPE html>
