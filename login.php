@@ -36,21 +36,75 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
     }
 
 ?>
-
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+    <title>Login</title>
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 <body>
-    <form action="" method="post">
-        <input type="text" name="email"><br>
-        <input type="password" name="senha"><br>
-        <button type="submit">LOGAR</button>
-    </form>
+    <div class="background-verde">
+        <!-- header -->
+        <header>
+            <!-- container -->
+            <div class="container">
+                <nav>
+                    <div class="logo">EEEPstudio</div>
+                    <ul class="ul">
+                        <li> <a href="inicio.html">Home</a> </li>
+                        <li> <a href="login.php">IMC</a></li>
+                        <li> <a href="login.php">IAC</a> </li>
+                        <li> <a href="graficos.php">Gráficos</a> </li>
+                    </ul>
+                    <div class="menu-icon">
+                        <img src="imagens/menu.png" alt="menu-icon">
+                    </div>
+                </nav>
+                <!-- end conntainer -->
+            </header>  
+            <!-- end background-verde -->      
+        </div>
+        <!-- line -->
+        <hr class="line">
+        <!-- end line -->
+        <!-- end header -->
+
+        <!-- main -->
+        <main>
+    <div class="case">
+        <form action="" method="post">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" name="email" placeholder="Email" required>
+                <i class='bx bx-envelope'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" name="senha" placeholder="Senha" required>
+                <i class='bx bx-lock-alt' ></i>
+            </div>
+
+            <div class="remember-forgot">
+                <label><input type="checkbox">Lembrar de mim</label>
+                <a href="#">Esqueceu a senha?</a>
+            </div>
+
+            <form action="painel.php" method="post">
+    <button type="submit" class="btn">Login</button>
+</form>
+
+            <div class="register-link">
+                <p>Não possui uma conta? <a href="index.php">Registrar</a></p>
+            </div>
+        </form>
+    </div>
+</main>
+        <!-- end main -->
+    
+    <script src="menu.js"></script>        
 </body>
 </html>
