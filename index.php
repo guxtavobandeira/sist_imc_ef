@@ -20,7 +20,7 @@ include('conexao.php');
 </head>
 <body>
     Cadastrar Senha
-    <form action="" method="post">
+    <form action="" method="POST">
         <input type="text" name="nome">
         <input type="text" name="email">
         <input type="text" name="senha">
