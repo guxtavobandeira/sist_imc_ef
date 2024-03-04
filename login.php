@@ -1,5 +1,4 @@
 <?php
-
 include("conexao.php");
 
 if(isset($_POST['email']) || isset($_POST['senha'])) {
@@ -20,7 +19,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
                 $usuario = $sql_exec->fetch_assoc();
             
                 if(password_verify($senha, $usuario['senha'])) {
-                    include("painel.php");
+                    session_start();
                     $_SESSION['id'] = $usuario['id'];
                     $_SESSION['nome'] = $usuario['nome'];
 
