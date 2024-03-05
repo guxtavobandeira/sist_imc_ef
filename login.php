@@ -56,8 +56,8 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
                     <div class="logo">EEEPstudio</div>
                     <ul class="ul">
                         <li> <a href="inicio.html">Home</a> </li>
-                        <li> <a href="login.php">IMC</a></li>
-                        <li> <a href="login.php">IAC</a> </li>
+                        <li> <a href="imc.php">IMC</a></li>
+                        <li> <a href="iac.php">IAC</a> </li>
                         <li> <a href="graficos.php">Gráficos</a> </li>
                     </ul>
                     <div class="menu-icon">
