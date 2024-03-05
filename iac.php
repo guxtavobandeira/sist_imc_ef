@@ -1,5 +1,6 @@
 <?php
 include('conexao.php');
+include('protect.php');
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica se o campo 'peso' foi enviado
