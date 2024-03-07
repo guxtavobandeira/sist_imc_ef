@@ -61,8 +61,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="peso" id="pesoinput" placeholder="Peso(kg)" min="0" step="1"><br>
         <input type="text" name="altura" id="alturainput" placeholder="altura(m)" min="0" step="1"><br>
         <input type="text" name="curso" placeholder="Informe seu curso"><br>
-        <input type="text" name="serie" placeholder="Informe sua serie"><br>
-        <input type="text" name="genero" placeholder="Informe seu genero"><br>
+        
+        <label for="opcoes_c">
+        <select name="serie" id="opcoes_c">
+        <option value="" disabled selected hidden>curso</option>
+        <option value="Enfermagem">Enfermagem</option>
+        <option value="Informática">Informática</option>
+        <option value="Comércio">Comércio</option>
+        <option value="Administração">Administração</option>
+        </select>
+        </label>
+        <br>
+        <label for="opcoes_s" >
+        <select name="serie" id="opcoes_s">
+        <option value="" disabled selected hidden>série</option>
+        <option value="1">1º ano</option>
+        <option value="2">2º ano</option>
+        <option value="3">3º ano</option>
+        </select>
+        </label>
+        <br>
+        <label for="opcoes_g">
+        <select name="genero" id="opcoes_g">
+        <option value="" disabled selected hidden>genero</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Feminino">Feminino</option>
+        </select>
+        </label>
+        <br>
         <input type="date" name="datadnasc" placeholder="Informe seu nascimento"><br>
         <button type="submit">Cadastrar</button>
     </form>
