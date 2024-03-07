@@ -27,6 +27,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $serie = $_POST['serie'];
         $genero = $_POST['genero'];
         $nascimento = $_POST['datadnasc'];
+
+        if (!is_numeric($_POST['peso']) || !is_numeric($_POST['altura'])) {
+            echo "<p>O peso e a altura devem ser valores numéricos.</p>";
+        } else {
+            $altura = $_POST['altura'];
+            $peso = $_POST['peso'];
         
          // Calcula o IMC
          $imc = $peso / ($altura * $altura);
@@ -37,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sddssssd", $nome, $peso, $altura, $curso, $serie, $genero, $nascimento, $imc);
         $stmt->execute();
         $stmt->close();
+        }
     }
 }
 ?>
@@ -50,9 +57,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <form method="post" action="" onsubmit="return substituirVirgulaPorPonto('pesoinput') && substituirVirgulaPorPonto('alturainput')">
-        <input type="text" name="nome" placeholder="Informe seu nome"><br>
-        <input type="text" name="peso" id="pesoinput" placeholder="Informe seu peso" min="0" step="1"><br> 
-        <input type="text" name="altura" id="alturainput" placeholder="Informe sua altura" min="0" step="1"><br>
+        <input type="text" name="nome" placeholder="Nome completo"><br>
+        <input type="text" name="peso" id="pesoinput" placeholder="Peso(kg)" min="0" step="1"><br>
+        <input type="text" name="altura" id="alturainput" placeholder="altura(m)" min="0" step="1"><br>
         <input type="text" name="curso" placeholder="Informe seu curso"><br>
         <input type="text" name="serie" placeholder="Informe sua serie"><br>
         <input type="text" name="genero" placeholder="Informe seu genero"><br>
