@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script>
     // Função para validar o número inserido
     function validarNumero() {
-        var input = document.getElementById('pesoInput').value;
+        var input = document.getElementById('pesoinput').value;
         // Substitua vírgulas por pontos para garantir a representação decimal
         input = input.replace(/,/g, '.');
         // Verifique se o valor inserido é um número válido
