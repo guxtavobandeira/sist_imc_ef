@@ -60,10 +60,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="nome" placeholder="Nome completo"><br>
         <input type="text" name="peso" id="pesoinput" placeholder="Peso(kg)" min="0" step="1"><br>
         <input type="text" name="altura" id="alturainput" placeholder="altura(m)" min="0" step="1"><br>
-        <input type="text" name="curso" placeholder="Informe seu curso"><br>
         
         <label for="opcoes_c">
-        <select name="serie" id="opcoes_c">
+        <select name="curso" id="opcoes_c">
         <option value="" disabled selected hidden>curso</option>
         <option value="Enfermagem">Enfermagem</option>
         <option value="Informática">Informática</option>
@@ -103,4 +102,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </script>
 </body>
 </html>
-
