@@ -15,6 +15,8 @@ include('protect.php');
         <a href="logout.php">Sair</a>
     </p>
     <br>
+    <a href="add.php">adicionar dados</a>
+    <br>
     <p>
         <a href="login.php">voltar ao login</a>
     </p>
