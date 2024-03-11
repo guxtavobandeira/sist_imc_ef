@@ -33,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $altura = $_POST['altura'];
             $peso = $_POST['peso'];
+            $circunf = $_POST['circunf'];
         
          // Calcula o IMC
          $imc = $peso / ($altura * $altura);
@@ -56,10 +57,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Cálculo Imc</title>
 </head>
 <body>
-    <form method="post" action="" onsubmit="return substituirVirgulaPorPonto('pesoinput') && substituirVirgulaPorPonto('alturainput')">
+    <form method="post" action="" onsubmit="return substituirVirgulaPorPonto('pesoinput') && substituirVirgulaPorPonto('alturainput') && substituirVirgulaPorPonto('circunferenciainput') ">
         <input type="text" name="nome" placeholder="Nome completo"><br>
         <input type="text" name="peso" id="pesoinput" placeholder="Peso(kg)" min="0" step="1"><br>
         <input type="text" name="altura" id="alturainput" placeholder="altura(m)" min="0" step="1"><br>
+        <input type="text" name="circunf" id="circunferenciainput" placeholder="circunferÊncia quadril (cm)" min="0" step="1"><br>
         
         <label for="opcoes_c">
         <select name="curso" id="opcoes_c">
@@ -99,6 +101,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             input.value = input.value.replace(/,/g, '.');
             return true;
         }
+
+        // Seleciona o input de peso
+var inputPeso = document.getElementById('pesoinput');
+
+// Adiciona um listener para o evento de digitar
+inputPeso.addEventListener('input', function(event) {
+  var valorAtual = event.target.value.replace(/\D/g, ''); // Remove tudo que não é número
+
+  if (valorAtual.length > 2) {
+    // Insere um ponto após o segundo número
+    valorAtual = valorAtual.replace(/^(\d{2})(\d+)/, '$1.$2');
+    
+  }
+  // Atualiza o valor no campo de entrada
+  event.target.value = valorAtual;
+});
+//seleciona o valor altura
+var inputAltura = document.getElementById('alturainput');
+
+// Adiciona um listener para o evento de digitar
+inputAltura.addEventListener('input', function(event) {
+  var valorAtual = event.target.value.replace(/\D/g, ''); // Remove tudo que não é número
+
+  if (valorAtual.length > 2) {
+    // Insere um ponto após o primeiro número
+    valorAtual = valorAtual.replace(/^(\d{1})(\d+)/, '$1.$2');
+  }
+
+  // Atualiza o valor no campo de entrada
+  event.target.value = valorAtual;
+});
+
     </script>
+    
 </body>
 </html>
