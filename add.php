@@ -38,12 +38,63 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
          // Calcula o IMC
          $imc = $peso / ($altura * $altura);
+         if ($imc <= 18.5){
+            $result_imc = 'Magreza';
+         }
+         else if ($imc > 18.5 && $imc < 24.9){
+            $result_imc = 'Normal';
+         }
+         else if ($imc >= 24.9  && $imc < 29.9){
+            $result_imc = 'Sobrepeso';
+         }
+         else if ($imc >= 29.9 && $imc < 34.9){
+            $result_imc = 'Obesidade grau I';
+         }
+         else if ($imc >= 34.9 && $imc < 39.9){
+            $result_imc = 'Obesidade grau II';
+         }
+         else{
+            $result_imc = 'Obesidade grau III';
+         }
          // Calcula o IAC
          $iac = ($circunf / ($altura * sqrt($altura))) - 18;
+         if($genero == 'Feminino'){
+            if($iac < 16){
+                $result_iac = 'Gordura muito baixa';
+            }
+            else if($iac >= 16 && $iac < 20){
+                $result_iac = 'Gordura baixa';
+            }
+            else if($iac >= 20 && $iac < 26){
+                $result_iac = 'Gordura ideal';
+            }
+            else if($iac >= 26 && $iac < 30){
+                $result_iac = 'Gordura moderada';
+            }
+            else{
+                $result_iac = 'Excesso de gordura';
+            }
+         }else{
+            if($iac < 11){
+                $result_iac = 'Gordura muito baixa';
+            }
+            else if($iac >= 11 && $iac < 15){
+                $result_iac = 'Gordura baixa';
+            }
+            else if($iac >= 15 && $iac < 19){
+                $result_iac = 'Gordura ideal';
+            }
+            else if($iac >= 19 && $iac < 25){
+                $result_iac = 'Gordura moderada';
+            }
+            else{
+                $result_iac = 'Excesso de gordura';
+            }
+         }
 
         // Prevenir SQL Injection usando prepared statements
-        $stmt = $mysqli->prepare("INSERT INTO alunos (nome_aluno, peso_aluno, altura_aluno, curso_aluno, sala_aluno, genero_aluno, datanasc_aluno, cir_quadril_aluno, imc_aluno, iac_aluno) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("sddssssddd", $nome, $peso, $altura, $curso, $serie, $genero, $nascimento, $circunf, $imc, $iac);
+        $stmt = $mysqli->prepare("INSERT INTO alunos (nome_aluno, peso_aluno, altura_aluno, curso_aluno, sala_aluno, genero_aluno, datanasc_aluno, cir_quadril_aluno, imc_aluno, iac_aluno, resultado_imc, resultado_iac) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sddssssdddss", $nome, $peso, $altura, $curso, $serie, $genero, $nascimento, $circunf, $imc, $iac, $result_imc, $result_iac);
         $stmt->execute();
         $stmt->close();
         }
@@ -132,7 +183,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         inputAltura.addEventListener('input', function(event) {
         var valorAtual = event.target.value.replace(/\D/g, ''); // Remove tudo que não é número
 
-        if (valorAtual.length > 2) {
+        if (valorAtual.length > 1) {
         // Insere um ponto após o primeiro número
         valorAtual = valorAtual.replace(/^(\d{1})(\d+)/, '$1.$2');
         }
