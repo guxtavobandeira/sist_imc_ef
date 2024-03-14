@@ -38,11 +38,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
          // Calcula o IMC
          $imc = $peso / ($altura * $altura);
-
+         // Calcula o IAC
+         $iac = ($circunf / ($altura * sqrt($altura))) - 18;
 
         // Prevenir SQL Injection usando prepared statements
-        $stmt = $mysqli->prepare("INSERT INTO alunos (nome_aluno, peso_aluno, altura_aluno, curso_aluno, sala_aluno, genero_aluno, datanasc_aluno, cir_quadril_aluno, imc_aluno) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("sddssssdd", $nome, $peso, $altura, $curso, $serie, $genero, $nascimento, $circunf, $imc);
+        $stmt = $mysqli->prepare("INSERT INTO alunos (nome_aluno, peso_aluno, altura_aluno, curso_aluno, sala_aluno, genero_aluno, datanasc_aluno, cir_quadril_aluno, imc_aluno, iac_aluno) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sddssssddd", $nome, $peso, $altura, $curso, $serie, $genero, $nascimento, $circunf, $imc, $iac);
         $stmt->execute();
         $stmt->close();
         }
