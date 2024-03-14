@@ -26,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $curso = $_POST['curso'];
         $serie = $_POST['serie'];
         $genero = $_POST['genero'];
+        $circunf = $_POST['circunf'];
         $nascimento = $_POST['datadnasc'];
 
         if (!is_numeric($_POST['peso']) || !is_numeric($_POST['altura'])) {
@@ -40,8 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         // Prevenir SQL Injection usando prepared statements
-        $stmt = $mysqli->prepare("INSERT INTO alunos (nome_aluno, peso_aluno, altura_aluno, curso_aluno, sala_aluno, genero_aluno, datanasc_aluno, imc_aluno) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("sddssssd", $nome, $peso, $altura, $curso, $serie, $genero, $nascimento, $imc);
+        $stmt = $mysqli->prepare("INSERT INTO alunos (nome_aluno, peso_aluno, altura_aluno, curso_aluno, sala_aluno, genero_aluno, datanasc_aluno, cir_quadril_aluno, imc_aluno) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sddssssdd", $nome, $peso, $altura, $curso, $serie, $genero, $nascimento, $circunf, $imc);
         $stmt->execute();
         $stmt->close();
         }
@@ -59,9 +60,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <form method="post" action="" onsubmit="return substituirVirgulaPorPonto('pesoinput') && substituirVirgulaPorPonto('alturainput') && substituirVirgulaPorPonto('circunferenciainput') ">
         <input type="text" name="nome" placeholder="Nome completo"><br>
-        <input type="text" name="peso" id="pesoinput" placeholder="Peso(kg)" min="0" step="1"><br>
-        <input type="text" name="altura" id="alturainput" placeholder="altura(m)" min="0" step="1"><br>
-        <input type="text" name="circunf" id="circunferenciainput" placeholder="circunferÊncia quadril (cm)" min="0" step="1"><br>
+        <input type="text" name="peso" id="pesoinput" placeholder="Peso(kg)" maxlength="6" min="0" step="1"><br>
+        <input type="text" name="altura" id="alturainput" placeholder="altura(m)" maxlength="4" min="0" step="1"><br>
+        <input type="text" name="circunf" id="circunferenciainput" placeholder="circunferÊncia quadril (cm)" maxlength="3" min="0" step="1"><br>
         
         <label for="opcoes_c">
         <select name="curso" id="opcoes_c">
@@ -103,35 +104,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Seleciona o input de peso
-var inputPeso = document.getElementById('pesoinput');
+        var inputPeso = document.getElementById('pesoinput');
 
-// Adiciona um listener para o evento de digitar
-inputPeso.addEventListener('input', function(event) {
-  var valorAtual = event.target.value.replace(/\D/g, ''); // Remove tudo que não é número
+        // Adiciona um listener para o evento de digitar
+        inputPeso.addEventListener('input', function(event) {
+        var valorAtual = event.target.value.replace(/\D/g, ''); // Remove tudo que não é número
 
-  if (valorAtual.length > 2) {
-    // Insere um ponto após o segundo número
-    valorAtual = valorAtual.replace(/^(\d{2})(\d+)/, '$1.$2');
+        if (valorAtual.length == 4) {
+            // Insere um ponto após o segundo número
+            valorAtual = valorAtual.replace(/^(\d{2})(\d+)/, '$1.$2');
     
-  }
-  // Atualiza o valor no campo de entrada
-  event.target.value = valorAtual;
-});
-//seleciona o valor altura
-var inputAltura = document.getElementById('alturainput');
+            }
+        else if (valorAtual.length == 5) {
+            // Insere um ponto após o terceiro número
+            valorAtual = valorAtual.replace(/^(\d{3})(\d+)/, '$1.$2');
+    
+            }
+            // Atualiza o valor no campo de entrada
+            event.target.value = valorAtual;
+            });
+        
+        //seleciona o valor altura
+        var inputAltura = document.getElementById('alturainput');
 
-// Adiciona um listener para o evento de digitar
-inputAltura.addEventListener('input', function(event) {
-  var valorAtual = event.target.value.replace(/\D/g, ''); // Remove tudo que não é número
+        // Adiciona um listener para o evento de digitar
+        inputAltura.addEventListener('input', function(event) {
+        var valorAtual = event.target.value.replace(/\D/g, ''); // Remove tudo que não é número
 
-  if (valorAtual.length > 2) {
-    // Insere um ponto após o primeiro número
-    valorAtual = valorAtual.replace(/^(\d{1})(\d+)/, '$1.$2');
-  }
+        if (valorAtual.length > 2) {
+        // Insere um ponto após o primeiro número
+        valorAtual = valorAtual.replace(/^(\d{1})(\d+)/, '$1.$2');
+        }
 
-  // Atualiza o valor no campo de entrada
-  event.target.value = valorAtual;
-});
+        // Atualiza o valor no campo de entrada
+        event.target.value = valorAtual;
+        });
 
     </script>
     
