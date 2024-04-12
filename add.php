@@ -150,8 +150,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="buttons">
             <button><a href="#"><i class='bx bx-user'></i> Perfil</a></button>
             <button><a href="add.php"><i class='bx bx-plus'></i> Adicionar Dados</a></button>
-            <button><a href="#"><i class='bx bx-trash'></i> Deletar Dados</a></button>
-            <button><a href="#"><i class='bx bx-edit'></i> Editar Dados</a></button>
             <button><a href="#"><i class='bx bx-chart'></i> Gráficos</a></button>
             <button><a href="#"><i class='bx bx-table'></i> Tabelas</a></button>
             <button><a href="#"><i class='bx bx-cog'></i> Configurações</a></button>
