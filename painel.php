@@ -1,5 +1,6 @@
 <?php
 include('protect.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -14,8 +15,8 @@ include('protect.php');
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-   <!-- NavBar -->
-   <div class="background-verde">
+    <!-- NavBar -->
+    <div class="background-verde">
         <!-- header -->
         <header>
             <!-- nav-container -->
@@ -26,7 +27,7 @@ include('protect.php');
                     <!-- Lista de links de navegação -->
                     <ul class="ul">
                         <!-- Ícone de casa com link para a página inicial -->
-                        <li> <a href="inicio.html"> <i class='bx bxs-home'></i> </a> </li>
+                        <li> <a href="/inicio/inicio.html"> <i class='bx bxs-home'></i> </a> </li>
                     </ul>
                 </nav>
                 <!-- Fim do container -->
@@ -62,7 +63,7 @@ include('protect.php');
             <button><a href="#"><i class='bx bx-trash'></i> Deletar Dados</a></button>
             <button><a href="#"><i class='bx bx-edit'></i> Editar Dados</a></button>
             <button><a href="#"><i class='bx bx-chart'></i> Gráficos</a></button>
-            <button><a href="tabelas.php"><i class='bx bx-table'></i> Tabelas</a></button>
+            <button><a href="#"><i class='bx bx-table'></i> Tabelas</a></button>
             <button><a href="#"><i class='bx bx-cog'></i> Configurações</a></button>
             <button><a href="/inicio/inicio.html"><span><i class='bx bx-log-out'></i>Sair</span></a></button>
         </div>
@@ -73,9 +74,19 @@ include('protect.php');
     <!-- main -->
     <section class="main-container">
         <div class="text-container">
-            <h2> <?php 
-            echo "Bem vindo ao painel ";
-            echo $_SESSION['nome'];  ?> </h2>
+            <h2>
+                <?php 
+                // Verifica se o usuário está logado
+                if (!isset($_SESSION['nome'])) {
+                // Se não estiver logado, redireciona para a página de login
+                header("Location: login.php");
+                exit; // Encerra o script
+                
+}
+                // Agora podemos exibir o nome do usuário
+                echo "Bem-vindo ao painel, " . $_SESSION['nome'] . "!";
+                ?>
+            </h2>
             <hr class="line-main">
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto minus ipsa quia dolore 
                 dicta explicabo corrupti eius distinctio quibusdam fuga omnis obcaecati et rerum, est officia 
@@ -86,5 +97,3 @@ include('protect.php');
         </div>
     </section>
     <!-- end main -->
-</body>
-</html>
