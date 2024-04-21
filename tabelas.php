@@ -55,7 +55,6 @@
             <option value="Todas">Todas</option>
         </select>
     </label>
-    <button onclick="filtrar()">Filtrar</button>
 
     <table>
         <thead>
@@ -72,6 +71,7 @@
                 <th>IAC</th>
                 <th>Resultado IMC</th>
                 <th>Resultado IAC</th>
+                <th>Data de Cadastro</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -95,6 +95,7 @@
                     echo "<td>" . $row['iac_aluno'] . "</td>";
                     echo "<td>" . $row['resultado_imc'] . "</td>";
                     echo "<td>" . $row['resultado_iac'] . "</td>";
+                    echo "<td>" . $row['datacadas_aluno'] . "</td>";
                     echo "<td>   
                     <a class='btn btn-sm btn-danger' href='excluir_aluno.php?id_aluno=" . $row['id_aluno'] . "' title='Deletar'>
                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash-fill' viewBox='0 0 16 16'>
@@ -114,6 +115,11 @@
     <script src="eventos.js"></script>
 
     <script>
+        // Adiciona eventos de escuta para os campos relevantes
+        document.getElementById('opcoes_g').addEventListener('change', filtrar);
+        document.getElementById('opcoes_c').addEventListener('change', filtrar);
+        document.getElementById('opcoes_s').addEventListener('change', filtrar);
+
         function filtrar() {
             // GÊNERO
             const GENERO = document.getElementById('opcoes_g');
@@ -151,13 +157,13 @@
                 var serieAluno = serieCelula.textContent || serieCelula.innerText;
 
                 // Oculta a linha para que ela seja exibida novamente somente se corresponder aos critérios de filtro
-                linha.style.display = "none";
+                linha.style.display = "";
 
-                // Verifica se o gênero, curso e série do aluno correspondem aos filtros selecionados
-                if ((generoAluno === generoSelecionado || generoSelecionado === "todos") &&
-                    (cursoAluno === cursoSelecionado || cursoSelecionado === "todos") &&
-                    (serieAluno === serieSelecionada || serieSelecionada === "Todas")) {
-                    linha.style.display = ""; // Exibe a linha se corresponder aos critérios de filtro
+                // Verifica se algum dos campos de filtro está preenchido e se a linha corresponde ao filtro
+                if ((generoSelecionado && generoAluno !== generoSelecionado && generoSelecionado !== "todos") ||
+                    (cursoSelecionado && cursoAluno !== cursoSelecionado && cursoSelecionado !== "todos") ||
+                    (serieSelecionada && serieAluno !== serieSelecionada && serieSelecionada !== "Todas")) {
+                    linha.style.display = "none"; // Oculta a linha se não corresponder ao filtro
                 }
             }
         }
