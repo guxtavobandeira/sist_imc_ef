@@ -55,7 +55,8 @@
             <option value="Todas">Todas</option>
         </select>
     </label>
-
+    <label name="cadastro" for="text">Data de cadastro</label>
+    <input type="date" id="data-cadastro" name="cadastro">
     <table>
         <thead>
             <tr>
@@ -95,7 +96,7 @@
                     echo "<td>" . $row['iac_aluno'] . "</td>";
                     echo "<td>" . $row['resultado_imc'] . "</td>";
                     echo "<td>" . $row['resultado_iac'] . "</td>";
-                    echo "<td>" . $row['datacadas_aluno'] . "</td>";
+                    echo "<td>" . date('Y-m-d', strtotime($row['datacadas_aluno'])) . "</td>";
                     echo "<td>   
                     <a class='btn btn-sm btn-danger' href='excluir_aluno.php?id_aluno=" . $row['id_aluno'] . "' title='Deletar'>
                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash-fill' viewBox='0 0 16 16'>
@@ -119,6 +120,7 @@
         document.getElementById('opcoes_g').addEventListener('change', filtrar);
         document.getElementById('opcoes_c').addEventListener('change', filtrar);
         document.getElementById('opcoes_s').addEventListener('change', filtrar);
+        document.getElementById('data-cadastro').addEventListener('change', filtrar); // Adiciona um evento de escuta para a mudança na data de cadastro
 
         function filtrar() {
             // GÊNERO
@@ -127,6 +129,8 @@
             const CURSO = document.getElementById('opcoes_c');
             // SÉRIE
             const SERIE = document.getElementById('opcoes_s');
+            // DATA DE CADASTRO
+            const DATA_CADASTRO = document.getElementById('data-cadastro');
             // TABELA
             const TABELA_ALUNOS = document.getElementById('tabela-alunos');
 
@@ -136,6 +140,8 @@
             var cursoSelecionado = CURSO.value.toLowerCase();
             // Obtém o valor da série selecionada
             var serieSelecionada = SERIE.value;
+            // Obtém a data de cadastro selecionada
+            var dataCadastroSelecionada = DATA_CADASTRO.value;
 
             // Obtém todas as linhas da tabela de alunos, incluindo o cabeçalho
             var linhas = TABELA_ALUNOS.querySelectorAll("tr");
@@ -156,14 +162,38 @@
                 var serieCelula = linha.querySelector("td:nth-child(5)"); // Seleciona a célula de série (quinta célula)
                 var serieAluno = serieCelula.textContent || serieCelula.innerText;
 
-                // Oculta a linha para que ela seja exibida novamente somente se corresponder aos critérios de filtro
-                linha.style.display = "";
+                // Obtém o texto da data de cadastro na célula correspondente
+                var dataCadastroCelula = linha.querySelector("td:nth-child(13)"); // Seleciona a célula de data de cadastro (décima terceira célula)
+                var dataCadastroAluno = dataCadastroCelula.textContent || dataCadastroCelula.innerText;
+
+                // Converte a data de cadastro do aluno para um objeto Date (considerando o fuso horário local)
+                var dataCadastroAlunoObj = new Date(dataCadastroAluno + 'T00:00:00');
+                // Converte a data de cadastro selecionada pelo usuário para um objeto Date (considerando o fuso horário local)
+                var dataCadastroSelecionadaObj = new Date(dataCadastroSelecionada + 'T00:00:00');
+
+                // Define a flag para controlar se a linha deve ser ocultada ou exibida
+                var deveOcultarLinha = false;
+
+                // Verifica se a data de cadastro do aluno é válida
+                if (!isNaN(dataCadastroAlunoObj.getTime())) {
+                    // Verifica se a data de cadastro do aluno é diferente da data selecionada pelo usuário
+                    if (dataCadastroAlunoObj.toDateString() !== dataCadastroSelecionadaObj.toDateString()) {
+                        // Define a flag como verdadeira para ocultar a linha
+                        deveOcultarLinha = true;
+                    }
+                } else {
+                    // Se a data de cadastro do aluno for inválida, a linha deve ser ocultada
+                    deveOcultarLinha = true;
+                }
 
                 // Verifica se algum dos campos de filtro está preenchido e se a linha corresponde ao filtro
                 if ((generoSelecionado && generoAluno !== generoSelecionado && generoSelecionado !== "todos") ||
                     (cursoSelecionado && cursoAluno !== cursoSelecionado && cursoSelecionado !== "todos") ||
-                    (serieSelecionada && serieAluno !== serieSelecionada && serieSelecionada !== "Todas")) {
+                    (serieSelecionada && serieAluno !== serieSelecionada && serieSelecionada !== "Todas") ||
+                    (dataCadastroSelecionada && deveOcultarLinha)) {
                     linha.style.display = "none"; // Oculta a linha se não corresponder ao filtro
+                } else {
+                    linha.style.display = ""; // Exibe a linha se corresponder ao filtro
                 }
             }
         }
