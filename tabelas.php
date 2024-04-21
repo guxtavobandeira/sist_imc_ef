@@ -90,7 +90,7 @@
                     echo "<td>" . $row['curso_aluno'] . "</td>";
                     echo "<td>" . $row['sala_aluno'] . "</td>";
                     echo "<td>" . $row['genero_aluno'] . "</td>";
-                    echo "<td>" . $row['datanasc_aluno'] . "</td>";
+                    echo "<td>" . date('Y-m-d', strtotime($row['datanasc_aluno'])) . "</td>";
                     echo "<td>" . $row['cir_quadril_aluno'] . "</td>";
                     echo "<td>" . $row['imc_aluno'] . "</td>";
                     echo "<td>" . $row['iac_aluno'] . "</td>";
