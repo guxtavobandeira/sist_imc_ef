@@ -21,9 +21,9 @@ include('conexao.php');
 <body>
     Cadastrar Senha
     <form action="" method="POST">
-        <input type="text" name="nome">
-        <input type="text" name="email">
-        <input type="text" name="senha">
+        <input type="text" name="nome" placeholder="digite seu nome">
+        <input type="text" name="email" placeholder="digite seu email">
+        <input type="text" name="senha" placeholder="digite sua senha">
         <button type="submit">Cadastrar senha</button>
         <br>
         Já tem uma conta? <br>
