@@ -98,12 +98,12 @@
                     echo "<td>" . $row['resultado_iac'] . "</td>";
                     echo "<td>" . date('Y-m-d', strtotime($row['datacadas_aluno'])) . "</td>";
                     echo "<td>   
-                    <a class='btn btn-sm btn-danger' href='excluir_aluno.php?id_aluno=" . $row['id_aluno'] . "' title='Deletar'>
-                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash-fill' viewBox='0 0 16 16'>
-                            <path d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z'/>
-                        </svg>
-                    </a>
-                </td>";
+    <a class='btn btn-sm btn-danger' href='#' onclick='confirmarExclusao(" . $row['id_aluno'] . ");' title='Deletar'>
+        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash-fill' viewBox='0 0 16 16'>
+            <path d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z'/>
+        </svg>
+    </a>
+</td>";
 
                     echo "</tr>";
                 }
@@ -113,6 +113,17 @@
             ?>
         </tbody>
     </table>
+    <script>
+        function confirmarExclusao(id_aluno) {
+            var confirmacao = confirm("Tem certeza que deseja excluir o aluno?");
+            if (confirmacao) {
+                window.location.href = 'excluir_aluno.php?id_aluno=' + id_aluno;
+            } else {
+                location.reload();
+            }
+            return false; // para evitar a execução do link padrão
+        }
+    </script>
     <script src="eventos.js"></script>
 
     <script>
