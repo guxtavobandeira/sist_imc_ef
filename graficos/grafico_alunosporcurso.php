@@ -25,7 +25,6 @@ if ($result_enf) {
     // Extrair o resultado da consulta
     $row = $result_enf->fetch_assoc();
     $num_alunos_enfer = $row['num_alunos_enf'];
-    echo "Número de alunos em Enfermagem: " . $num_alunos_enfer . "<br>";
 } else {
     echo "Erro na consulta de Enfermagem: " . $mysqli->error . "<br>";
 }
@@ -35,7 +34,6 @@ if ($result_inf) {
     // Extrair o resultado da consulta
     $row = $result_inf->fetch_assoc();
     $num_alunos_inf = $row['num_alunos_inf'];
-    echo "Número de alunos em Informática: " . $num_alunos_inf . "<br>";
 } else {
     echo "Erro na consulta de Informática: " . $mysqli->error . "<br>";
 }
@@ -45,7 +43,6 @@ if ($result_com) {
     // Extrair o resultado da consulta
     $row = $result_com->fetch_assoc();
     $num_alunos_com = $row['num_alunos_com'];
-    echo "Número de alunos em Comércio: " . $num_alunos_com . "<br>";
 } else {
     echo "Erro na consulta de Comércio: " . $mysqli->error . "<br>";
 }
@@ -55,7 +52,6 @@ if ($result_adm) {
     // Extrair o resultado da consulta
     $row = $result_adm->fetch_assoc();
     $num_alunos_adm = $row['num_alunos_adm'];
-    echo "Número de alunos em Administração: " . $num_alunos_adm . "<br>";
 } else {
     echo "Erro na consulta de Administração: " . $mysqli->error . "<br>";
 }
@@ -104,8 +100,8 @@ $mysqli->close();
 
       var options = {
         title: "Alunos por Curso",
-        width: 600,
-        height: 400,
+        width: 1500,
+        height: 750,
         bar: { groupWidth: "95%" },
         legend: { position: "none" },
       };
