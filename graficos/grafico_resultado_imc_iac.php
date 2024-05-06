@@ -1,5 +1,6 @@
 <?php
 include('conexao.php');
+include('protect.php');
 
 //enfermagem
 
@@ -106,12 +107,14 @@ $sql_adm_obesidadeiii = "SELECT curso_aluno, COUNT(*) AS num_alunos_adm_obesidad
 $result_adm_obesidadeiii = $mysqli->query($sql_adm_obesidadeiii);
 
 
+//extração de resultados
+
+
 // Enfermagem magreza
 if ($result_enf_magreza) {
   // Extrair o resultado da consulta
   $row = $result_enf_magreza->fetch_assoc();
   $num_alunos_enf_magreza = $row['num_alunos_enf_magreza'];
-  echo $num_alunos_enf_magreza, "<br>";
 } else {
   echo "Erro na consulta de Enfermagem magreza: " . $mysqli->error . "<br>";
 }
@@ -120,7 +123,6 @@ if ($result_enf_normal) {
   // Extrair o resultado da consulta
   $row = $result_enf_normal->fetch_assoc();
   $num_alunos_enf_normal = $row['num_alunos_enf_normal'];
-  echo $num_alunos_enf_normal, "<br>";
 } else {
   echo "Erro na consulta de Enfermagem normal: " . $mysqli->error . "<br>";
 }
@@ -129,7 +131,6 @@ if ($result_enf_sobrepeso) {
   // Extrair o resultado da consulta
   $row = $result_enf_sobrepeso->fetch_assoc();
   $num_alunos_enf_sobrepeso = $row['num_alunos_enf_sobrepeso'];
-  echo $num_alunos_enf_sobrepeso, "<br>";
 } else {
   echo "Erro na consulta de Enfermagem - Sobrepeso: " . $mysqli->error . "<br>";
 }
@@ -138,7 +139,6 @@ if ($result_enf_obesidadei) {
   // Extrair o resultado da consulta
   $row = $result_enf_obesidadei->fetch_assoc();
   $num_alunos_enf_obesidadei = $row['num_alunos_enf_obesidadei'];
-  echo $num_alunos_enf_obesidadei, "<br>";
 } else {
   echo "Erro na consulta de Enfermagem - obesidadei: " . $mysqli->error . "<br>";
 }
@@ -147,7 +147,6 @@ if ($result_enf_obesidadeii) {
   // Extrair o resultado da consulta
   $row = $result_enf_obesidadeii->fetch_assoc();
   $num_alunos_enf_obesidadeii = $row['num_alunos_enf_obesidadeii'];
-  echo $num_alunos_enf_obesidadeii, "<br>";
 } else {
   echo "Erro na consulta de Enfermagem - obesidadeii: " . $mysqli->error . "<br>";
 }
@@ -156,7 +155,6 @@ if ($result_enf_obesidadeiii) {
   // Extrair o resultado da consulta
   $row = $result_enf_obesidadeiii->fetch_assoc();
   $num_alunos_enf_obesidadeiii = $row['num_alunos_enf_obesidadeiii'];
-  echo $num_alunos_enf_obesidadeiii, "<br>";
 } else {
   echo "Erro na consulta de Enfermagem - obesidadeiii: " . $mysqli->error . "<br>";
 }
@@ -165,7 +163,6 @@ if ($result_inf_magreza) {
   // Extrair o resultado da consulta
   $row = $result_inf_magreza->fetch_assoc();
   $num_alunos_inf_magreza = $row['num_alunos_inf_magreza'];
-  echo $num_alunos_inf_magreza, "<br>";
 } else {
   echo "Erro na consulta de Informática - Magreza: " . $mysqli->error . "<br>";
 }
@@ -174,7 +171,6 @@ if ($result_inf_normal) {
   // Extrair o resultado da consulta
   $row = $result_inf_normal->fetch_assoc();
   $num_alunos_inf_normal = $row['num_alunos_inf_normal'];
-  echo $num_alunos_inf_normal, "<br>";
 } else {
   echo "Erro na consulta de Informática - Normal: " . $mysqli->error . "<br>";
 }
@@ -183,7 +179,6 @@ if ($result_inf_sobrepeso) {
   // Extrair o resultado da consulta
   $row = $result_inf_sobrepeso->fetch_assoc();
   $num_alunos_inf_sobrepeso = $row['num_alunos_inf_sobrepeso'];
-  echo $num_alunos_inf_sobrepeso, "<br>";
 } else {
   echo "Erro na consulta de Informática - Sobrepeso: " . $mysqli->error . "<br>";
 }
@@ -192,7 +187,6 @@ if ($result_inf_obesidadei) {
   // Extrair o resultado da consulta
   $row = $result_inf_obesidadei->fetch_assoc();
   $num_alunos_inf_obesidadei = $row['num_alunos_inf_obesidadei'];
-  echo $num_alunos_inf_obesidadei, "<br>";
 } else {
   echo "Erro na consulta de Informática - Obesidade grau I: " . $mysqli->error . "<br>";
 }
@@ -201,7 +195,6 @@ if ($result_inf_obesidadeii) {
   // Extrair o resultado da consulta
   $row = $result_inf_obesidadeii->fetch_assoc();
   $num_alunos_inf_obesidadeii = $row['num_alunos_inf_obesidadeii'];
-  echo $num_alunos_inf_obesidadeii, "<br>";
 } else {
   echo "Erro na consulta de Informática - Obesidade grau II: " . $mysqli->error . "<br>";
 }
@@ -210,7 +203,6 @@ if ($result_inf_obesidadeiii) {
   // Extrair o resultado da consulta
   $row = $result_inf_obesidadeiii->fetch_assoc();
   $num_alunos_inf_obesidadeiii = $row['num_alunos_inf_obesidadeiii'];
-  echo $num_alunos_inf_obesidadeiii, "<br>";
 } else {
   echo "Erro na consulta de Informática - Obesidade grau III: " . $mysqli->error . "<br>";
 }
@@ -219,7 +211,6 @@ if ($result_com_magreza) {
   // Extrair o resultado da consulta
   $row = $result_com_magreza->fetch_assoc();
   $num_alunos_com_magreza = $row['num_alunos_com_magreza'];
-  echo $num_alunos_com_magreza, "<br>";
 } else {
   echo "Erro na consulta de Comércio - Magreza: " . $mysqli->error . "<br>";
 }
@@ -228,7 +219,6 @@ if ($result_com_normal) {
   // Extrair o resultado da consulta
   $row = $result_com_normal->fetch_assoc();
   $num_alunos_com_normal = $row['num_alunos_com_normal'];
-  echo $num_alunos_com_normal, "<br>";
 } else {
   echo "Erro na consulta de Comércio - Normal: " . $mysqli->error . "<br>";
 }
@@ -237,7 +227,6 @@ if ($result_com_sobrepeso) {
   // Extrair o resultado da consulta
   $row = $result_com_sobrepeso->fetch_assoc();
   $num_alunos_com_sobrepeso = $row['num_alunos_com_sobrepeso'];
-  echo $num_alunos_com_sobrepeso, "<br>";
 } else {
   echo "Erro na consulta de Comércio - Sobrepeso: " . $mysqli->error . "<br>";
 }
@@ -246,7 +235,6 @@ if ($result_com_obesidadei) {
   // Extrair o resultado da consulta
   $row = $result_com_obesidadei->fetch_assoc();
   $num_alunos_com_obesidadei = $row['num_alunos_com_obesidadei'];
-  echo $num_alunos_com_obesidadei, "<br>";
 } else {
   echo "Erro na consulta de Comércio - Obesidade grau I: " . $mysqli->error . "<br>";
 }
@@ -255,7 +243,6 @@ if ($result_com_obesidadeii) {
   // Extrair o resultado da consulta
   $row = $result_com_obesidadeii->fetch_assoc();
   $num_alunos_com_obesidadeii = $row['num_alunos_com_obesidadeii'];
-  echo $num_alunos_com_obesidadeii, "<br>";
 } else {
   echo "Erro na consulta de Comércio - Obesidade grau II: " . $mysqli->error . "<br>";
 }
@@ -264,7 +251,6 @@ if ($result_com_obesidadeiii) {
   // Extrair o resultado da consulta
   $row = $result_com_obesidadeiii->fetch_assoc();
   $num_alunos_com_obesidadeiii = $row['num_alunos_com_obesidadeiii'];
-  echo $num_alunos_com_obesidadeiii, "<br>";
 } else {
   echo "Erro na consulta de Comércio - Obesidade grau III: " . $mysqli->error . "<br>";
 }
@@ -274,7 +260,6 @@ if ($result_adm_magreza) {
   // Extrair o resultado da consulta
   $row = $result_adm_magreza->fetch_assoc();
   $num_alunos_adm_magreza = $row['num_alunos_adm_magreza'];
-  echo $num_alunos_adm_magreza, "<br>";
 } else {
   echo "Erro na consulta de Administração - Magreza: " . $mysqli->error . "<br>";
 }
@@ -283,7 +268,6 @@ if ($result_adm_normal) {
   // Extrair o resultado da consulta
   $row = $result_adm_normal->fetch_assoc();
   $num_alunos_adm_normal = $row['num_alunos_adm_normal'];
-  echo $num_alunos_adm_normal, "<br>";
 } else {
   echo "Erro na consulta de Administração - Normal: " . $mysqli->error . "<br>";
 }
@@ -292,7 +276,6 @@ if ($result_adm_sobrepeso) {
   // Extrair o resultado da consulta
   $row = $result_adm_sobrepeso->fetch_assoc();
   $num_alunos_adm_sobrepeso = $row['num_alunos_adm_sobrepeso'];
-  echo $num_alunos_adm_sobrepeso, "<br>";
 } else {
   echo "Erro na consulta de Administração - Sobrepeso: " . $mysqli->error . "<br>";
 }
@@ -301,7 +284,6 @@ if ($result_adm_obesidadei) {
   // Extrair o resultado da consulta
   $row = $result_adm_obesidadei->fetch_assoc();
   $num_alunos_adm_obesidadei = $row['num_alunos_adm_obesidadei'];
-  echo $num_alunos_adm_obesidadei, "<br>";
 } else {
   echo "Erro na consulta de Administração - Obesidade grau I: " . $mysqli->error . "<br>";
 }
@@ -310,7 +292,6 @@ if ($result_adm_obesidadeii) {
   // Extrair o resultado da consulta
   $row = $result_adm_obesidadeii->fetch_assoc();
   $num_alunos_adm_obesidadeii = $row['num_alunos_adm_obesidadeii'];
-  echo $num_alunos_adm_obesidadeii, "<br>";
 } else {
   echo "Erro na consulta de Administração - Obesidade grau II: " . $mysqli->error . "<br>";
 }
@@ -319,7 +300,6 @@ if ($result_adm_obesidadeiii) {
   // Extrair o resultado da consulta
   $row = $result_adm_obesidadeiii->fetch_assoc();
   $num_alunos_adm_obesidadeiii = $row['num_alunos_adm_obesidadeiii'];
-  echo $num_alunos_adm_obesidadeiii, "<br>";
 } else {
   echo "Erro na consulta de Administração - Obesidade grau III: " . $mysqli->error . "<br>";
 }
@@ -327,37 +307,44 @@ if ($result_adm_obesidadeiii) {
 
 
 ?>
-
+<!DOCTYPE html>
 <html>
-  <head>
+<head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawVisualization);
+        google.charts.load('current', {'packages':['corechart']});
 
-      function drawVisualization() {
-        // Some raw data (not necessarily accurate)
-        var data = google.visualization.arrayToDataTable([
-          ['Curso', 'Magreza', 'Normal', 'Sobrepeso', 'Obesidade grau I', 'Obesidade grau II', 'Obesidade grau III'],
-          ['Enfermagem',  <?php echo $num_alunos_enf_magreza?>,      <?php echo $num_alunos_enf_normal?>,         <?php echo $num_alunos_enf_sobrepeso?>,             <?php echo $num_alunos_enf_obesidadei?>,           <?php echo $num_alunos_enf_obesidadeii?>,      <?php echo $num_alunos_enf_obesidadeiii?>],
-          ['Informática',  <?php echo $num_alunos_inf_magreza?>,      <?php echo $num_alunos_inf_normal?>,         <?php echo $num_alunos_inf_sobrepeso?>,             <?php echo $num_alunos_inf_obesidadei?>,           <?php echo $num_alunos_inf_obesidadeii?>,      <?php echo $num_alunos_inf_obesidadeiii?>],
-          ['Comércio',  <?php echo $num_alunos_com_magreza?>,      <?php echo $num_alunos_com_normal?>,         <?php echo $num_alunos_com_sobrepeso?>,             <?php echo $num_alunos_com_obesidadei?>,           <?php echo $num_alunos_com_obesidadeii?>,      <?php echo $num_alunos_com_obesidadeiii?>],
-          ['Administração',  <?php echo $num_alunos_adm_magreza?>,      <?php echo $num_alunos_adm_normal?>,         <?php echo $num_alunos_adm_sobrepeso?>,             <?php echo $num_alunos_adm_obesidadei?>,           <?php echo $num_alunos_adm_obesidadeii?>,      <?php echo $num_alunos_adm_obesidadeiii?>]
-        ]);
+        function drawVisualization() {
+            // Some raw data (not necessarily accurate)
+            var data = google.visualization.arrayToDataTable([
+                ['Curso', 'Magreza', 'Normal', 'Sobrepeso', 'Obesidade grau I', 'Obesidade grau II', 'Obesidade grau III'],
+                ['Enfermagem',  <?php echo $num_alunos_enf_magreza?>,      <?php echo $num_alunos_enf_normal?>,         <?php echo $num_alunos_enf_sobrepeso?>,             <?php echo $num_alunos_enf_obesidadei?>,           <?php echo $num_alunos_enf_obesidadeii?>,      <?php echo $num_alunos_enf_obesidadeiii?>],
+                ['Informática',  <?php echo $num_alunos_inf_magreza?>,      <?php echo $num_alunos_inf_normal?>,         <?php echo $num_alunos_inf_sobrepeso?>,             <?php echo $num_alunos_inf_obesidadei?>,           <?php echo $num_alunos_inf_obesidadeii?>,      <?php echo $num_alunos_inf_obesidadeiii?>],
+                ['Comércio',  <?php echo $num_alunos_com_magreza?>,      <?php echo $num_alunos_com_normal?>,         <?php echo $num_alunos_com_sobrepeso?>,             <?php echo $num_alunos_com_obesidadei?>,           <?php echo $num_alunos_com_obesidadeii?>,      <?php echo $num_alunos_com_obesidadeiii?>],
+                ['Administração',  <?php echo $num_alunos_adm_magreza?>,      <?php echo $num_alunos_adm_normal?>,         <?php echo $num_alunos_adm_sobrepeso?>,             <?php echo $num_alunos_adm_obesidadei?>,           <?php echo $num_alunos_adm_obesidadeii?>,      <?php echo $num_alunos_adm_obesidadeiii?>]
+            ]);
 
-        var options = {
-          title : 'Resultados IMC',
-          vAxis: {title: 'Resultados'},
-          hAxis: {title: 'Curso'},
-          seriesType: 'bars'
-        };
+            var options = {
+                title : 'Resultados IMC',
+                width: 1500,
+                height: 750,
+                vAxis: {title: 'Resultados'},
+                hAxis: {title: 'Curso'},
+                seriesType: 'bars'
+            };
 
-        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
+            var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+
+        function mostrarGrafico() {
+            drawVisualization();
+        }
     </script>
-  </head>
-  <body>
+</head>
+<body>
+    <button onclick="mostrarGrafico()">Mostrar Gráfico</button>
     <div id="chart_div" style="width: 900px; height: 500px;"></div>
-  </body>
+</body>
 </html>
+
