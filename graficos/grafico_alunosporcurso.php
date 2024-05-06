@@ -1,6 +1,7 @@
 <?php
 // Incluir o arquivo de conexão
 include('conexao.php');
+include('protect.php');
 
 // Consulta SQL para obter a quantidade de alunos para o curso "Enfermagem"
 $sql_enf = "SELECT curso_aluno, COUNT(*) AS num_alunos_enf FROM alunos WHERE curso_aluno = 'Enfermagem'";
