@@ -16,5 +16,7 @@ include('protect.php');
     <a href="grafico_x_altura.php">media das alturas</a>
     <br>
     <a href="grafico_x_peso.php">media dos pesos</a>
+    <br>
+    <a href="grafico_resultado_imc_iac.php">porcentagem dos resultados</a>
 </body>
 </html>
