@@ -1,6 +1,8 @@
 <?php
 // Incluir o arquivo de conexão
 include('conexao.php');
+//proteção(somente ususario logado)
+include('protect.php');
 // Consulta SQL para obter a média de peso dos alunos do sexo feminino
 $sql_fem = "SELECT AVG(peso_aluno) AS media_peso_fem FROM alunos WHERE genero_aluno = 'Feminino'";
 $result_fem = $mysqli->query($sql_fem);
