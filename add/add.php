@@ -151,7 +151,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="buttons">
             <button><a href="#"><i class='bx bx-user'></i> Perfil</a></button>
             <button><a href="add.php"><i class='bx bx-plus'></i> Adicionar Dados</a></button>
-            <button><a href="grafico.php"><i class='bx bx-chart'></i> Gráficos</a></button>
+            <button><a href="grafico.html"><i class='bx bx-chart'></i> Gráficos</a></button>
             <button><a href="tabelas.php"><i class='bx bx-table'></i> Tabelas</a></button>
             <button><a href="#"><i class='bx bx-cog'></i> Configurações</a></button>
             <button><a href="inicio.html"><span id="sair"><i class='bx bx-log-out'></i>Sair</span></a></button>
