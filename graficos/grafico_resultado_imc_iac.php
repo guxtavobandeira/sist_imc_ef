@@ -313,8 +313,9 @@ if ($result_adm_obesidadeiii) {
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', {'packages':['corechart']});
+        google.charts.load('current', {'packages':['corechart']});
 
-        function drawVisualization() {
+        function drawVisualizationImcCurso() {
             // Some raw data (not necessarily accurate)
             var data = google.visualization.arrayToDataTable([
                 ['Curso', 'Magreza', 'Normal', 'Sobrepeso', 'Obesidade grau I', 'Obesidade grau II', 'Obesidade grau III'],
@@ -325,10 +326,32 @@ if ($result_adm_obesidadeiii) {
             ]);
 
             var options = {
-                title : 'Resultados IMC',
+                title : 'Resultados IMC por curso',
                 width: 1500,
                 height: 750,
-                vAxis: {title: 'Resultados'},
+                vAxis: {title: 'Resultados IMC'},
+                hAxis: {title: 'Curso'},
+                seriesType: 'bars'
+            };
+
+            var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+        function drawVisualizationIacCurso() {
+            // Some raw data (not necessarily accurate)
+            var data = google.visualization.arrayToDataTable([
+                ['Curso', 'Magreza', 'Normal', 'Sobrepeso', 'Obesidade grau I', 'Obesidade grau II', 'Obesidade grau III'],
+                ['Enfermagem',  <?php echo $num_alunos_enf_magreza?>,      <?php echo $num_alunos_enf_normal?>,         <?php echo $num_alunos_enf_sobrepeso?>,             <?php echo $num_alunos_enf_obesidadei?>,           <?php echo $num_alunos_enf_obesidadeii?>,      <?php echo $num_alunos_enf_obesidadeiii?>],
+                ['Informática',  <?php echo $num_alunos_inf_magreza?>,      <?php echo $num_alunos_inf_normal?>,         <?php echo $num_alunos_inf_sobrepeso?>,             <?php echo $num_alunos_inf_obesidadei?>,           <?php echo $num_alunos_inf_obesidadeii?>,      <?php echo $num_alunos_inf_obesidadeiii?>],
+                ['Comércio',  <?php echo $num_alunos_com_magreza?>,      <?php echo $num_alunos_com_normal?>,         <?php echo $num_alunos_com_sobrepeso?>,             <?php echo $num_alunos_com_obesidadei?>,           <?php echo $num_alunos_com_obesidadeii?>,      <?php echo $num_alunos_com_obesidadeiii?>],
+                ['Administração',  <?php echo $num_alunos_adm_magreza?>,      <?php echo $num_alunos_adm_normal?>,         <?php echo $num_alunos_adm_sobrepeso?>,             <?php echo $num_alunos_adm_obesidadei?>,           <?php echo $num_alunos_adm_obesidadeii?>,      <?php echo $num_alunos_adm_obesidadeiii?>]
+            ]);
+
+            var options = {
+                title : 'Resultados IAC por curso',
+                width: 1500,
+                height: 750,
+                vAxis: {title: 'Resultados IAC'},
                 hAxis: {title: 'Curso'},
                 seriesType: 'bars'
             };
@@ -337,13 +360,18 @@ if ($result_adm_obesidadeiii) {
             chart.draw(data, options);
         }
 
-        function mostrarGrafico() {
-            drawVisualization();
+
+        function mostrarGraficoImcCurso() {
+          drawVisualizationImcCurso();
+        }
+        function mostrarGraficoIacCurso() {
+          drawVisualizationIacCurso();
         }
     </script>
 </head>
 <body>
-    <button onclick="mostrarGrafico()">Mostrar Gráfico</button>
+    <button onclick="mostrarGraficoImcCurso()">Mostrar Gráfico imc por curso</button>
+    <button onclick="mostrarGraficoIacCurso()">Mostrar Gráfico iac por curso</button>
     <div id="chart_div" style="width: 900px; height: 500px;"></div>
 </body>
 </html>
