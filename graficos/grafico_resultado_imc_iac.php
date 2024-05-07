@@ -2,6 +2,8 @@
 include('conexao.php');
 include('protect.php');
 
+//calculos imc
+
 //enfermagem
 
 // Consulta SQL para obter a quantidade de alunos para o curso de enfermagem e que estão no peso magreza
@@ -304,6 +306,273 @@ if ($result_adm_obesidadeiii) {
   echo "Erro na consulta de Administração - Obesidade grau III: " . $mysqli->error . "<br>";
 }
 
+//calculos iac
+
+//enfermagem 
+
+// Consulta SQL para obter a quantidade de alunos para o curso de enfermagem e que estão com gordura muito baixa
+$sql_enf_mtobaixa = "SELECT curso_aluno, COUNT(*) AS num_alunos_enf_mtobaixa FROM alunos WHERE curso_aluno = 'Enfermagem' AND resultado_iac='Gordura muito baixa'";
+$result_enf_mtobaixa = $mysqli->query($sql_enf_mtobaixa);
+
+// Consulta SQL para obter a quantidade de alunos para o curso de enfermagem e que estão com gordura baixa
+$sql_enf_baixa = "SELECT curso_aluno, COUNT(*) AS num_alunos_enf_baixa FROM alunos WHERE curso_aluno = 'Enfermagem' AND resultado_iac='Gordura baixa'";
+$result_enf_baixa = $mysqli->query($sql_enf_baixa);
+
+// Consulta SQL para obter a quantidade de alunos para o curso de enfermagem e que estão com gordura baixa
+$sql_enf_ideal = "SELECT curso_aluno, COUNT(*) AS num_alunos_enf_ideal FROM alunos WHERE curso_aluno = 'Enfermagem' AND resultado_iac='Gordura ideal'";
+$result_enf_ideal = $mysqli->query($sql_enf_ideal);
+
+// Consulta SQL para obter a quantidade de alunos para o curso de enfermagem e que estão com gordura moderada
+$sql_enf_moderada = "SELECT curso_aluno, COUNT(*) AS num_alunos_enf_moderada FROM alunos WHERE curso_aluno = 'Enfermagem' AND resultado_iac='Gordura moderada'";
+$result_enf_moderada = $mysqli->query($sql_enf_moderada);
+
+// Consulta SQL para obter a quantidade de alunos para o curso de enfermagem e que estão com gordura excesso de gordura
+$sql_enf_eg = "SELECT curso_aluno, COUNT(*) AS num_alunos_enf_eg FROM alunos WHERE curso_aluno = 'Enfermagem' AND resultado_iac='Excesso de gordura'";
+$result_enf_eg = $mysqli->query($sql_enf_eg);
+
+//informatica
+
+// Consulta SQL para obter a quantidade de alunos para o curso de informática e que estão com gordura muito baixa
+$sql_inf_mtobaixa = "SELECT curso_aluno, COUNT(*) AS num_alunos_inf_mtobaixa FROM alunos WHERE curso_aluno = 'Informática' AND resultado_iac='Gordura muito baixa'";
+$result_inf_mtobaixa = $mysqli->query($sql_inf_mtobaixa);
+
+// Consulta SQL para obter a quantidade de alunos para o curso de informática e que estão com gordura baixa
+$sql_inf_baixa = "SELECT curso_aluno, COUNT(*) AS num_alunos_inf_baixa FROM alunos WHERE curso_aluno = 'Informática' AND resultado_iac='Gordura baixa'";
+$result_inf_baixa = $mysqli->query($sql_inf_baixa);
+
+// Consulta SQL para obter a quantidade de alunos para o curso de informática e que estão com gordura ideal
+$sql_inf_ideal = "SELECT curso_aluno, COUNT(*) AS num_alunos_inf_ideal FROM alunos WHERE curso_aluno = 'Informática' AND resultado_iac='Gordura ideal'";
+$result_inf_ideal = $mysqli->query($sql_inf_ideal);
+
+// Consulta SQL para obter a quantidade de alunos para o curso de informática e que estão com gordura moderada
+$sql_inf_moderada = "SELECT curso_aluno, COUNT(*) AS num_alunos_inf_moderada FROM alunos WHERE curso_aluno = 'Informática' AND resultado_iac='Gordura moderada'";
+$result_inf_moderada = $mysqli->query($sql_inf_moderada);
+
+// Consulta SQL para obter a quantidade de alunos para o curso de informática e que estão com excesso de gordura
+$sql_inf_eg = "SELECT curso_aluno, COUNT(*) AS num_alunos_inf_eg FROM alunos WHERE curso_aluno = 'Informática' AND resultado_iac='Excesso de gordura'";
+$result_inf_eg = $mysqli->query($sql_inf_eg);
+
+//comercio
+
+// Consulta SQL para obter a quantidade de alunos para o curso de comércio e que estão com gordura muito baixa
+$sql_com_mtobaixa = "SELECT curso_aluno, COUNT(*) AS num_alunos_com_mtobaixa FROM alunos WHERE curso_aluno = 'Comércio' AND resultado_iac='Gordura muito baixa'";
+$result_com_mtobaixa = $mysqli->query($sql_com_mtobaixa);
+
+// Consulta SQL para obter a quantidade de alunos para o curso de comércio e que estão com gordura baixa
+$sql_com_baixa = "SELECT curso_aluno, COUNT(*) AS num_alunos_com_baixa FROM alunos WHERE curso_aluno = 'Comércio' AND resultado_iac='Gordura baixa'";
+$result_com_baixa = $mysqli->query($sql_com_baixa);
+
+// Consulta SQL para obter a quantidade de alunos para o curso de comércio e que estão com gordura ideal
+$sql_com_ideal = "SELECT curso_aluno, COUNT(*) AS num_alunos_com_ideal FROM alunos WHERE curso_aluno = 'Comércio' AND resultado_iac='Gordura ideal'";
+$result_com_ideal = $mysqli->query($sql_com_ideal);
+
+// Consulta SQL para obter a quantidade de alunos para o curso de comércio e que estão com gordura moderada
+$sql_com_moderada = "SELECT curso_aluno, COUNT(*) AS num_alunos_com_moderada FROM alunos WHERE curso_aluno = 'Comércio' AND resultado_iac='Gordura moderada'";
+$result_com_moderada = $mysqli->query($sql_com_moderada);
+
+// Consulta SQL para obter a quantidade de alunos para o curso de comércio e que estão com excesso de gordura
+$sql_com_eg = "SELECT curso_aluno, COUNT(*) AS num_alunos_com_eg FROM alunos WHERE curso_aluno = 'Comércio' AND resultado_iac='Excesso de gordura'";
+$result_com_eg = $mysqli->query($sql_com_eg);
+
+//administração
+
+// Consulta SQL para obter a quantidade de alunos para o curso de administração e que estão com gordura muito baixa
+$sql_adm_mtobaixa = "SELECT curso_aluno, COUNT(*) AS num_alunos_adm_mtobaixa FROM alunos WHERE curso_aluno = 'Administração' AND resultado_iac='Gordura muito baixa'";
+$result_adm_mtobaixa = $mysqli->query($sql_adm_mtobaixa);
+
+// Consulta SQL para obter a quantidade de alunos para o curso de administração e que estão com gordura baixa
+$sql_adm_baixa = "SELECT curso_aluno, COUNT(*) AS num_alunos_adm_baixa FROM alunos WHERE curso_aluno = 'Administração' AND resultado_iac='Gordura baixa'";
+$result_adm_baixa = $mysqli->query($sql_adm_baixa);
+
+// Consulta SQL para obter a quantidade de alunos para o curso de administração e que estão com gordura ideal
+$sql_adm_ideal = "SELECT curso_aluno, COUNT(*) AS num_alunos_adm_ideal FROM alunos WHERE curso_aluno = 'Administração' AND resultado_iac='Gordura ideal'";
+$result_adm_ideal = $mysqli->query($sql_adm_ideal);
+
+// Consulta SQL para obter a quantidade de alunos para o curso de administração e que estão com gordura moderada
+$sql_adm_moderada = "SELECT curso_aluno, COUNT(*) AS num_alunos_adm_moderada FROM alunos WHERE curso_aluno = 'Administração' AND resultado_iac='Gordura moderada'";
+$result_adm_moderada = $mysqli->query($sql_adm_moderada);
+
+// Consulta SQL para obter a quantidade de alunos para o curso de administração e que estão com excesso de gordura
+$sql_adm_eg = "SELECT curso_aluno, COUNT(*) AS num_alunos_adm_eg FROM alunos WHERE curso_aluno = 'Administração' AND resultado_iac='Excesso de gordura'";
+$result_adm_eg = $mysqli->query($sql_adm_eg);
+
+
+
+
+
+//extração de resultados iac
+
+// Enfermagem muito baixa
+if ($result_enf_mtobaixa) {
+  // Extrair o resultado da consulta
+  $row = $result_enf_mtobaixa->fetch_assoc();
+  $num_alunos_enf_mtobaixa = $row['num_alunos_enf_mtobaixa'];
+} else {
+  echo "Erro na consulta de Enfermagem muito baixa: " . $mysqli->error . "<br>";
+}
+// Enfermagem baixa
+if ($result_enf_baixa) {
+  // Extrair o resultado da consulta
+  $row = $result_enf_baixa->fetch_assoc();
+  $num_alunos_enf_baixa = $row['num_alunos_enf_baixa'];
+} else {
+  echo "Erro na consulta de Enfermagem baixa: " . $mysqli->error . "<br>";
+}
+// Enfermagem ideal
+if ($result_enf_ideal) {
+  // Extrair o resultado da consulta
+  $row = $result_enf_ideal->fetch_assoc();
+  $num_alunos_enf_ideal = $row['num_alunos_enf_ideal'];
+} else {
+  echo "Erro na consulta de Enfermagem ideal: " . $mysqli->error . "<br>";
+}
+// Enfermagem moderada
+if ($result_enf_moderada) {
+  // Extrair o resultado da consulta
+  $row = $result_enf_moderada->fetch_assoc();
+  $num_alunos_enf_moderada = $row['num_alunos_enf_moderada'];
+} else {
+  echo "Erro na consulta de Enfermagem moderada: " . $mysqli->error . "<br>";
+}
+// Enfermagem excesso de gordura
+if ($result_enf_eg) {
+  // Extrair o resultado da consulta
+  $row = $result_enf_eg->fetch_assoc();
+  $num_alunos_enf_eg = $row['num_alunos_enf_eg'];
+} else {
+  echo "Erro na consulta de Enfermagem excesso de gordura: " . $mysqli->error . "<br>";
+}
+
+//informatica
+
+// Informática muito baixa
+if ($result_inf_mtobaixa) {
+  // Extrair o resultado da consulta
+  $row = $result_inf_mtobaixa->fetch_assoc();
+  $num_alunos_inf_mtobaixa = $row['num_alunos_inf_mtobaixa'];
+} else {
+  echo "Erro na consulta de Informática muito baixa: " . $mysqli->error . "<br>";
+}
+// Informática baixa
+if ($result_inf_baixa) {
+  // Extrair o resultado da consulta
+  $row = $result_inf_baixa->fetch_assoc();
+  $num_alunos_inf_baixa = $row['num_alunos_inf_baixa'];
+} else {
+  echo "Erro na consulta de Informática baixa: " . $mysqli->error . "<br>";
+}
+// Informática ideal
+if ($result_inf_ideal) {
+  // Extrair o resultado da consulta
+  $row = $result_inf_ideal->fetch_assoc();
+  $num_alunos_inf_ideal = $row['num_alunos_inf_ideal'];
+} else {
+  echo "Erro na consulta de Informática ideal: " . $mysqli->error . "<br>";
+}
+// Informática moderada
+if ($result_inf_moderada) {
+  // Extrair o resultado da consulta
+  $row = $result_inf_moderada->fetch_assoc();
+  $num_alunos_inf_moderada = $row['num_alunos_inf_moderada'];
+} else {
+  echo "Erro na consulta de Informática moderada: " . $mysqli->error . "<br>";
+}
+// Informática excesso de gordura
+if ($result_inf_eg) {
+  // Extrair o resultado da consulta
+  $row = $result_inf_eg->fetch_assoc();
+  $num_alunos_inf_eg = $row['num_alunos_inf_eg'];
+} else {
+  echo "Erro na consulta de Informática excesso de gordura: " . $mysqli->error . "<br>";
+}
+
+//comercio
+
+// Comércio muito baixa
+if ($result_com_mtobaixa) {
+  // Extrair o resultado da consulta
+  $row = $result_com_mtobaixa->fetch_assoc();
+  $num_alunos_com_mtobaixa = $row['num_alunos_com_mtobaixa'];
+} else {
+  echo "Erro na consulta de Comércio muito baixa: " . $mysqli->error . "<br>";
+}
+// Comércio baixa
+if ($result_com_baixa) {
+  // Extrair o resultado da consulta
+  $row = $result_com_baixa->fetch_assoc();
+  $num_alunos_com_baixa = $row['num_alunos_com_baixa'];
+} else {
+  echo "Erro na consulta de Comércio baixa: " . $mysqli->error . "<br>";
+}
+// Comércio ideal
+if ($result_com_ideal) {
+  // Extrair o resultado da consulta
+  $row = $result_com_ideal->fetch_assoc();
+  $num_alunos_com_ideal = $row['num_alunos_com_ideal'];
+} else {
+  echo "Erro na consulta de Comércio ideal: " . $mysqli->error . "<br>";
+}
+// Comércio moderada
+if ($result_com_moderada) {
+  // Extrair o resultado da consulta
+  $row = $result_com_moderada->fetch_assoc();
+  $num_alunos_com_moderada = $row['num_alunos_com_moderada'];
+} else {
+  echo "Erro na consulta de Comércio moderada: " . $mysqli->error . "<br>";
+}
+// Comércio excesso de gordura
+if ($result_com_eg) {
+  // Extrair o resultado da consulta
+  $row = $result_com_eg->fetch_assoc();
+  $num_alunos_com_eg = $row['num_alunos_com_eg'];
+} else {
+  echo "Erro na consulta de Comércio excesso de gordura: " . $mysqli->error . "<br>";
+}
+
+//adm
+
+// Administração muito baixa
+if ($result_adm_mtobaixa) {
+  // Extrair o resultado da consulta
+  $row = $result_adm_mtobaixa->fetch_assoc();
+  $num_alunos_adm_mtobaixa = $row['num_alunos_adm_mtobaixa'];
+} else {
+  echo "Erro na consulta de Administração muito baixa: " . $mysqli->error . "<br>";
+}
+// Administração baixa
+if ($result_adm_baixa) {
+  // Extrair o resultado da consulta
+  $row = $result_adm_baixa->fetch_assoc();
+  $num_alunos_adm_baixa = $row['num_alunos_adm_baixa'];
+} else {
+  echo "Erro na consulta de Administração baixa: " . $mysqli->error . "<br>";
+}
+// Administração ideal
+if ($result_adm_ideal) {
+  // Extrair o resultado da consulta
+  $row = $result_adm_ideal->fetch_assoc();
+  $num_alunos_adm_ideal = $row['num_alunos_adm_ideal'];
+} else {
+  echo "Erro na consulta de Administração ideal: " . $mysqli->error . "<br>";
+}
+// Administração moderada
+if ($result_adm_moderada) {
+  // Extrair o resultado da consulta
+  $row = $result_adm_moderada->fetch_assoc();
+  $num_alunos_adm_moderada = $row['num_alunos_adm_moderada'];
+} else {
+  echo "Erro na consulta de Administração moderada: " . $mysqli->error . "<br>";
+}
+// Administração excesso de gordura
+if ($result_adm_eg) {
+  // Extrair o resultado da consulta
+  $row = $result_adm_eg->fetch_assoc();
+  $num_alunos_adm_eg = $row['num_alunos_adm_eg'];
+} else {
+  echo "Erro na consulta de Administração excesso de gordura: " . $mysqli->error . "<br>";
+}
+
+
 
 
 ?>
@@ -340,11 +609,11 @@ if ($result_adm_obesidadeiii) {
         function drawVisualizationIacCurso() {
             // Some raw data (not necessarily accurate)
             var data = google.visualization.arrayToDataTable([
-                ['Curso', 'Magreza', 'Normal', 'Sobrepeso', 'Obesidade grau I', 'Obesidade grau II', 'Obesidade grau III'],
-                ['Enfermagem',  <?php echo $num_alunos_enf_magreza?>,      <?php echo $num_alunos_enf_normal?>,         <?php echo $num_alunos_enf_sobrepeso?>,             <?php echo $num_alunos_enf_obesidadei?>,           <?php echo $num_alunos_enf_obesidadeii?>,      <?php echo $num_alunos_enf_obesidadeiii?>],
-                ['Informática',  <?php echo $num_alunos_inf_magreza?>,      <?php echo $num_alunos_inf_normal?>,         <?php echo $num_alunos_inf_sobrepeso?>,             <?php echo $num_alunos_inf_obesidadei?>,           <?php echo $num_alunos_inf_obesidadeii?>,      <?php echo $num_alunos_inf_obesidadeiii?>],
-                ['Comércio',  <?php echo $num_alunos_com_magreza?>,      <?php echo $num_alunos_com_normal?>,         <?php echo $num_alunos_com_sobrepeso?>,             <?php echo $num_alunos_com_obesidadei?>,           <?php echo $num_alunos_com_obesidadeii?>,      <?php echo $num_alunos_com_obesidadeiii?>],
-                ['Administração',  <?php echo $num_alunos_adm_magreza?>,      <?php echo $num_alunos_adm_normal?>,         <?php echo $num_alunos_adm_sobrepeso?>,             <?php echo $num_alunos_adm_obesidadei?>,           <?php echo $num_alunos_adm_obesidadeii?>,      <?php echo $num_alunos_adm_obesidadeiii?>]
+                ['Curso', 'Gordura muito baixa', 'Gordura baixa', 'Gordura ideal', 'Gordura moderada', 'Excesso de gordura'],
+                ['Enfermagem',  <?php echo $num_alunos_enf_mtobaixa?>,      <?php echo $num_alunos_enf_baixa?>,         <?php echo $num_alunos_enf_ideal?>,             <?php echo $num_alunos_enf_moderada?>,           <?php echo $num_alunos_enf_eg?>],
+                ['Informática',  <?php echo $num_alunos_inf_mtobaixa?>,      <?php echo $num_alunos_inf_baixa?>,         <?php echo $num_alunos_inf_ideal?>,             <?php echo $num_alunos_inf_moderada?>,           <?php echo $num_alunos_inf_eg?>],
+                ['Comércio',  <?php echo $num_alunos_com_mtobaixa?>,      <?php echo $num_alunos_com_baixa?>,         <?php echo $num_alunos_com_ideal?>,             <?php echo $num_alunos_com_moderada?>,           <?php echo $num_alunos_com_eg?>],
+                ['Administração',  <?php echo $num_alunos_adm_mtobaixa?>,      <?php echo $num_alunos_adm_baixa?>,         <?php echo $num_alunos_adm_ideal?>,             <?php echo $num_alunos_adm_moderada?>,           <?php echo $num_alunos_adm_eg?>]
             ]);
 
             var options = {
