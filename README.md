@@ -16,13 +16,13 @@ Junte-se a nós nesta jornada em direção a uma vida mais saudável e feliz!
 # Tela de início
 
 ![db3ff4b7-cf73-488f-a3f4-6c48dcb87fe3](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/85656127-3a3b-4d55-8212-f22e5261a671)
+
 A tela de início é o ponto de partida da nossa aplicação, onde os usuários têm acesso rápido às principais funcionalidades. Ao entrar na plataforma, os usuários encontram opções claras para navegar, como "Entrar", facilitando o acesso às suas contas. Uma vez dentro, eles têm à disposição ferramentas essenciais, como o cálculo do Índice de Massa Corporal (IMC) e do Índice de Adiposidade Corporal (IAC), fornecendo insights valiosos sobre sua saúde. Além disso, a tela de início oferece acesso rápido a gráficos intuitivos, permitindo que os usuários visualizem seu progresso ao longo do tempo. Em resumo, a tela de início serve como a "home" da nossa aplicação, fornecendo uma experiência centrada no usuário e acessível para monitorar e melhorar a saúde de forma eficaz.
 
-*__Codigos__
-https://github.com/guxtavobandeira/sist_imc_ef/tree/main/inicio
 # Página de registro
 
 ![80ae3bdf-fb8a-4503-b51f-57313c242337](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/c04a82cc-983e-464c-b1c2-88d71a9b2c3d)
+
 ![f0d143a6-5066-4414-9fa2-5fcebe4ce09d](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/a8385168-746c-4955-ae46-e7d47b8f00aa)
 A página de registro é onde os usuários podem criar uma nova conta para acessar os recursos da aplicação. Ao se registrar, os usuários devem fornecer as seguintes informações:
 
@@ -40,12 +40,12 @@ __Validação de Dados:__ A plataforma realiza validações nos campos do formul
 
 __Link para Login:__ No final do formulário de registro, há um link que direciona os usuários para a página de login, caso já possuam uma conta.
 
-*__Codigos__
-
 # Página de preenchimento para aluno
 
 ![433f99c3-9f4e-4e48-9e25-dede772d4599](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/06e73330-e255-4453-bf02-9448818d2654)
+
 ![ad0a8251-60c3-4624-8668-0fbf7b2747ab](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/75c266bb-9a72-438b-b3bb-e51cf29f91fb)
+
 ![b83cb660-e68c-44ec-8d4e-ac3d2344f297](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/85c95d33-0a5e-468a-9760-7fbb35f1ae7e)
 
 
