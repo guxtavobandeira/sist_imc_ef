@@ -171,8 +171,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="fields">
                         <div class="input-field">
                             <label for="text">Nome completo</label>
-                            <input type="text" name="nome" id="nomeinput" placeholder="Nome completo">
+                            <input type="text" name="nome" id="nomeinput" placeholder="Nome completo" oninput="capitalize(this)">
                         </div>
+                        <script>
+        function capitalize(input) {
+    var words = input.value.split(' ');
+    var capitalizedWords = [];
+    words.forEach(function(word) {
+        if (word.length > 2) {
+            capitalizedWords.push(word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+        } else {
+            capitalizedWords.push(word.toLowerCase());
+        }
+    });
+    input.value = capitalizedWords.join(' ');
+}
+    </script>
 
                         <div class="input-field">
                             <label for="text">Série</label>
