@@ -24,6 +24,7 @@ A tela de início é o ponto de partida da nossa aplicação, onde os usuários 
 ![80ae3bdf-fb8a-4503-b51f-57313c242337](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/c04a82cc-983e-464c-b1c2-88d71a9b2c3d)
 
 ![f0d143a6-5066-4414-9fa2-5fcebe4ce09d](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/a8385168-746c-4955-ae46-e7d47b8f00aa)
+
 A página de registro é onde os usuários podem criar uma nova conta para acessar os recursos da aplicação. Ao se registrar, os usuários devem fornecer as seguintes informações:
 
 * __Nome Completo:__ O nome completo do usuário, que será utilizado para identificação na plataforma.
