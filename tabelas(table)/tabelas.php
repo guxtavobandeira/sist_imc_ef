@@ -84,7 +84,6 @@
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     $id_aluno = $row['id_aluno']; // Defina o ID do aluno dentro do loop
-                    $nome_aluno = $row['nome_aluno']; // Defina o nome do aluno dentro do loop
                     echo "<tr>";
                     echo "<td>" . $row['nome_aluno'] . "</td>";
                     echo "<td>" . $row['peso_aluno'] . "</td>";
@@ -135,29 +134,63 @@
             margin: 10px;
         }
     </style>
-    <div id="quadrado">
-        <h3>Você realmente deseja excluir o aluno?</h3>
-        <button onclick="confirmarExclusao(true)">Confirmar</button>
-        <button onclick="confirmarExclusao(false)">Cancelar</button>
-    </div>
+    <div id="quadrado" style="display: none;">
+    <h3>Você realmente deseja excluir o aluno <span id="nomeAluno"></span>?</h3>
+    <button id="confirmarBtn">Confirmar</button>
+    <button id="cancelarBtn">Cancelar</button>
+</div>
 
-    <script>
-        function exibir_quadrado(id_aluno) {
-            var quadrado = document.getElementById('quadrado');
-            quadrado.style.display = 'block';
-            quadrado.dataset.idAluno = id_aluno;
-        }
+<script>
+    function exibir_quadrado(id_aluno) {
+        var quadrado = document.getElementById('quadrado');
+        var nomeAlunoSpan = document.getElementById('nomeAluno');
 
-        function confirmarExclusao(confirmado) {
-            var quadrado = document.getElementById('quadrado');
-            var id_aluno = quadrado.dataset.idAluno;
-            if (confirmado) {
-                window.location.href = 'excluir_aluno.php?id_aluno=' + id_aluno;
-            } else {
-                quadrado.style.display = 'none';
+        // Fazendo a requisição AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'buscar_nome_aluno.php?id_aluno=' + id_aluno, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // Se a requisição for bem-sucedida, atualiza o span com o nome do aluno
+                    nomeAlunoSpan.textContent = xhr.responseText;
+                } else {
+                    // Se houver algum erro na requisição, exibe uma mensagem de erro genérica
+                    nomeAlunoSpan.textContent = "Erro ao buscar o nome do aluno";
+                }
             }
+        };
+        xhr.send();
+
+        quadrado.style.display = 'block';
+        
+        // Adicionando event listener para o botão de confirmar
+        document.getElementById('confirmarBtn').addEventListener('click', function() {
+            confirmarExclusao(true, id_aluno);
+        });
+
+        // Adicionando event listener para o botão de cancelar
+        document.getElementById('cancelarBtn').addEventListener('click', function() {
+            confirmarExclusao(false, id_aluno);
+        });
+    }
+
+    function confirmarExclusao(confirmado, id_aluno) {
+        var quadrado = document.getElementById('quadrado');
+
+        if (confirmado) {
+            // Aqui você pode fazer o que precisa fazer se a exclusão for confirmada
+            console.log("Exclusão confirmada para o aluno de ID " + id_aluno);
+            window.location.href = 'excluir_aluno.php?id_aluno=' + id_aluno;
+        } else {
+            // Aqui você pode fazer o que precisa fazer se a exclusão for cancelada
+            console.log("Exclusão cancelada para o aluno de ID " + id_aluno);
         }
-    </script>
+
+        quadrado.style.display = 'none';
+    }
+</script>
+
+
 
     <script src="eventos.js"></script>
 
