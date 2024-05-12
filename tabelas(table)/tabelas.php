@@ -83,6 +83,8 @@
             $result = $mysqli->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
+                    $id_aluno = $row['id_aluno']; // Defina o ID do aluno dentro do loop
+                    $nome_aluno = $row['nome_aluno']; // Defina o nome do aluno dentro do loop
                     echo "<tr>";
                     echo "<td>" . $row['nome_aluno'] . "</td>";
                     echo "<td>" . $row['peso_aluno'] . "</td>";
@@ -98,32 +100,65 @@
                     echo "<td>" . $row['resultado_iac'] . "</td>";
                     echo "<td>" . date('Y-m-d', strtotime($row['datacadas_aluno'])) . "</td>";
                     echo "<td>   
-    <a class='btn btn-sm btn-danger' href='#' onclick='confirmarExclusao(" . $row['id_aluno'] . ");' title='Deletar'>
-        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash-fill' viewBox='0 0 16 16'>
-            <path d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z'/>
-        </svg>
-    </a>
-</td>";
-
+            <a class='btn btn-sm btn-danger' href='#' onclick='exibir_quadrado($id_aluno)' title='Deletar'>
+                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash-fill' viewBox='0 0 16 16'>
+                    <path d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z'/>
+                </svg>
+            </a>
+        </td>";
                     echo "</tr>";
                 }
             } else {
                 echo "<tr><td colspan='12'>Nenhum aluno encontrado</td></tr>";
             }
             ?>
+
         </tbody>
     </table>
+    <style>
+        #quadrado {
+            display: none;
+            width: 400px;
+            min-height: 200px;
+            background-color: #f2f2f2;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            z-index: 1000;
+        }
+
+        #quadrado button {
+            margin: 10px;
+        }
+    </style>
+    <div id="quadrado">
+        <h3>Você realmente deseja excluir o aluno?</h3>
+        <button onclick="confirmarExclusao(true)">Confirmar</button>
+        <button onclick="confirmarExclusao(false)">Cancelar</button>
+    </div>
+
     <script>
-        function confirmarExclusao(id_aluno) {
-            var confirmacao = confirm("Tem certeza que deseja excluir o aluno?");
-            if (confirmacao) {
+        function exibir_quadrado(id_aluno) {
+            var quadrado = document.getElementById('quadrado');
+            quadrado.style.display = 'block';
+            quadrado.dataset.idAluno = id_aluno;
+        }
+
+        function confirmarExclusao(confirmado) {
+            var quadrado = document.getElementById('quadrado');
+            var id_aluno = quadrado.dataset.idAluno;
+            if (confirmado) {
                 window.location.href = 'excluir_aluno.php?id_aluno=' + id_aluno;
             } else {
-                location.reload();
+                quadrado.style.display = 'none';
             }
-            return false; // para evitar a execução do link padrão
         }
     </script>
+
     <script src="eventos.js"></script>
 
     <script>
