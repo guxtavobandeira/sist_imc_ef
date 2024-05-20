@@ -61,5 +61,20 @@ A página de preenchimento é uma área essencial do nosso sistema, projetada pa
 * __Configurações:__ Nesta seção, os alunos podem personalizar suas preferências e configurações de conta. Eles podem ajustar notificações, privacidade e outras configurações de acordo com suas necessidades e preferências individuais.
 * __Sair:__ Por fim, os alunos têm a opção de sair da plataforma, encerrando sua sessão com segurança. Isso garante a privacidade e segurança de suas informações quando não estão mais utilizando o sistema.
 
+# Página de gráficos
 
+![8bc84137-969c-472e-af87-704f1279e350](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/c7bee76b-ef26-4b71-80e1-dbb37d3a0aa3)
 
+A página de gráficos apresentamos uma variedade de gráficos que oferecem uma visão abrangente e detalhada dos dados cruciais relacionados aos nossos alunos. Explore nossos gráficos interativos para compreender melhor o perfil dos estudantes, identificar tendências e padrões significativos, e acompanhar o progresso ao longo do tempo.
+
+__Gráfico de Alunos por Curso Cadastrado:__
+Este gráfico mostra a distribuição dos alunos entre os diferentes cursos oferecidos pela escola. Ele ajuda a visualizar quantos alunos estão matriculados em cada curso.
+
+__Gráfico de Média de Alturas:__
+Este gráfico apresenta a altura média dos alunos em diferentes turmas ou faixas etárias. É útil para entender a distribuição de alturas dentro da população estudantil.
+
+__Gráfico de Média de Pesos:__
+Similar ao gráfico de média de alturas, este gráfico mostra o peso médio dos alunos por turma ou faixa etária. Ajuda a identificar padrões ou discrepâncias na distribuição de peso.
+
+__Gráfico % dos Resultados:__
+Este gráfico apresenta a porcentagem de alunos em diferentes faixas de resultados acadêmicos (por exemplo, notas ou avaliações de desempenho). Ele ajuda a visualizar a distribuição do desempenho acadêmico dos alunos.
