@@ -79,4 +79,4 @@ Esse gráfico de média de pesos é uma representação visual que destaca a mé
 __Gráfico % dos Resultados:__
 Este gráfico de porcentagem dos resultados é uma representação visual que mostra a distribuição dos resultados de um conjunto de dados em termos percentuais. Ele oferece uma compreensão rápida de como cada categoria contribui para o total, expressando essas contribuições em porcentagem. É uma ferramenta valiosa para entender a distribuição percentual de diferentes categorias ou resultados, sendo útil em análises de dados, tomadas de decisão e comunicação de informações.
 
-# _Tipos de Gráfico_
+#__Tipos de Gráfico__
