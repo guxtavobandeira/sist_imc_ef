@@ -68,13 +68,13 @@ A página de preenchimento é uma área essencial do nosso sistema, projetada pa
 A página de gráficos apresentamos uma variedade de gráficos que oferecem uma visão abrangente e detalhada dos dados cruciais relacionados aos nossos alunos. Explore nossos gráficos interativos para compreender melhor o perfil dos estudantes, identificar tendências e padrões significativos, e acompanhar o progresso ao longo do tempo.
 
 __Gráfico de Alunos por Curso Cadastrado:__
-Este gráfico mostra a distribuição dos alunos entre os diferentes cursos oferecidos pela escola. Ele ajuda a visualizar quantos alunos estão matriculados em cada curso.
+O gráfico de alunos por curso serve para fornecer uma representação visual da distribuição dos alunos em diferentes cursos ou disciplinas. Ele oferece uma visão rápida e clara de como o número de alunos está distribuído entre os diversos cursos oferecidos pela instituição.
 
 __Gráfico de Média de Alturas:__
-Este gráfico apresenta a altura média dos alunos em diferentes turmas ou faixas etárias. É útil para entender a distribuição de alturas dentro da população estudantil.
+Um gráfico de média de alturas é uma representação visual que mostra a distribuição das alturas de um grupo e destaca a média dessas alturas. Ele oferece uma visão rápida da altura média do grupo e da variação das alturas individuais em torno dessa média. Essa ferramenta é valiosa para entender a altura média e a variação das alturas dentro do grupo, sendo útil em análises demográficas e tomadas de decisão práticas.
 
 __Gráfico de Média de Pesos:__
-Similar ao gráfico de média de alturas, este gráfico mostra o peso médio dos alunos por turma ou faixa etária. Ajuda a identificar padrões ou discrepâncias na distribuição de peso.
+Esse gráfico de média de pesos é uma representação visual que destaca a média dos pesos de um grupo de pessoas, oferecendo uma visão rápida e clara do peso médio do grupo e da variação dos pesos individuais em torno dessa média. Essa ferramenta é valiosa para compreender tanto o peso médio do grupo quanto a distribuição dos pesos individuais, sendo útil em contextos que variam desde saúde pública até o bem-estar individual.
 
 __Gráfico % dos Resultados:__
-Este gráfico apresenta a porcentagem de alunos em diferentes faixas de resultados acadêmicos (por exemplo, notas ou avaliações de desempenho). Ele ajuda a visualizar a distribuição do desempenho acadêmico dos alunos.
+Este gráfico de porcentagem dos resultados é uma representação visual que mostra a distribuição dos resultados de um conjunto de dados em termos percentuais. Ele oferece uma compreensão rápida de como cada categoria contribui para o total, expressando essas contribuições em porcentagem. É uma ferramenta valiosa para entender a distribuição percentual de diferentes categorias ou resultados, sendo útil em análises de dados, tomadas de decisão e comunicação de informações.
