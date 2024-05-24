@@ -46,10 +46,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['nome'])) {
 
 
 
-$genero = $_POST['genero_u'];
-$data = $_POST['data'];
-$telefone = $_POST['num'];
-
 // Fechar a conexão com o banco de dados
 $mysqli->close();
 ?>
@@ -194,7 +190,7 @@ $mysqli->close();
                         </div>
                         <div class="input-field">
                             <label for="text" >Número Telefone</label>
-                            <input type="text" name="num" id="telefone" placeholder="">
+                            <input type="text" name="num" placeholder="">
                         </div>
                         <div class="input-field">
                             <label for="text">Data de nascimento</label>
@@ -209,13 +205,13 @@ $mysqli->close();
         <!-- end dados -->
     </section>
     <!-- end main -->
+    
     <script>
     // Inicialize o InputMask para adicionar a máscara ao campo de número de telefone
     var telefoneMask = IMask(document.getElementById('telefone'), {
       mask: '(00) 00000-0000' // Defina a máscara desejada para o número de telefone
     });
   </script>
-
     <script src="perfil.js"></script>
 
 </body>
