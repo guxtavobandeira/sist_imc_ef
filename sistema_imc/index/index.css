@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:wght@300;400;700;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+:root{
+    --verde: rgb(0, 130, 65);
+    --amarelo: rgb(255, 200, 5);
+    --laranja: #ff7c37;
+    --laranja2: #f94600;
+    --degrade-btn: linear-gradient(#fe9611, #ff5c00);
+    --cinza: #e2e2e2;
+    --dkcinza: #333;
+
+}
+.background-verde {
+    background: url("../imagens/bk-verde.jpg") no-repeat;
+    background-size: 100%;
+    background-position: 90%;
+}
+
+.line {
+    background: linear-gradient(to right, var(--laranja2), var(--amarelo), var(--laranja2));
+    height: 20px;
+    width: 100%;
+    border: none;
+}
+
+/* classe reutilizável */
+.container {
+    max-width: auto;
+    padding: 0 5%;
+    margin: 0 auto;
+}
+
+/* classes do site */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+
+}
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+.ul {
+    display: flex;
+    align-items: center;
+}
+
+.ul li {
+    margin: 0 30px;
+    font-size: 15px;
+}
+
+.ul li i{
+    color: white ;
+    font-size: 2.5rem;
+}
+
+.ul li i:hover{
+    cursor: pointer;
+}
+
+.ul li a {
+    color: white;
+
+}
+
+/* menu icon */
+.menu-icon {
+    display: none;
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.menu-icon img{
+    height: 40px;
+}
+
+/* end menu icon */
+
+
+/* main */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background: url('../imagens/bk-verde.jpg') no-repeat; */
+    background-size: 100% 100%;
+}
+
+.case{
+    margin: 20px auto;
+    max-width: 1400px;
+    width: 420px;
+    background: var(--verde);
+    color: white;
+    border-radius: 10px;
+    padding: 60px 40px;
+    position: relative;
+    bottom: calc(100%/2);
+    box-shadow: 5px 5px 20px rgb(0,62,34);
+}
+
+.case h1{
+    font-size: 36px;
+    text-align: center;
+}
+
+.case .input-box{
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    position: relative;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid var(--amarelo);
+    border-radius: 40px;
+    font-size: 16px;
+    color: white;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+    color: white;
+}
+
+.input-box i{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.case .remember-forgot{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px ;
+}
+
+.remember-forgot label input{
+    accent-color: white;
+    margin-right: 3px;
+}
+
+.remember-forgot a{
+    color: white;
+}
+
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+.case .btn{
+    width: 100%;
+    height: 45px;
+    background: white;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px var(--amarelo);
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--verde);
+    font-weight: 600;
+}
+
+.case .register-link{
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.register-link p a{
+    color: white;
+    font-weight: 600;
+}
+
+.register-link p a:hover{
+    text-decoration: underline;
+}
+/* end main */
+
+/* RESPONSIVIDADE */
+
+/* Notebook */
+@media screen and (max-width: 1366px) and (max-height: 768px) {
+
+}
+/* Responsivo para telas menores que 900px */
+@media (max-width: 900px) {
+
+
+    /* Ajuste de outros elementos conforme necessário */
+}
+
+/* Responsivo para telas menores que 600px */
+@media (max-width: 600px) {
+    main .case {
+        width: 90%; /* Ajuste a largura do formulário */
+        padding: 40px 20px; /* Ajuste o preenchimento */
+    }
+
+    main .case h1 {
+        font-size: 28px; /* Reduza o tamanho da fonte do cabeçalho */
+    }
+
+    /* Ajuste de outros elementos conforme necessário */
+}
+
+/* Responsivo para telas menores que 300px */
+@media (max-width: 350px) {
+    main .case h1 {
+        font-size: 24px; /* Reduza ainda mais o tamanho da fonte do cabeçalho */
+    }
+    .remember-forgot{
+        flex-direction: column;
+        align-items: center;
+    }
+    /* Ajuste de outros elementos conforme necessário */
+}
