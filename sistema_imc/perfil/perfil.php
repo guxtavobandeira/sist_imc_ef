@@ -10,6 +10,18 @@ if (!isset($_SESSION['nome'])) {
     header("Location: login.php");
     exit; // Encerra o script
 }
+
+// Busca o caminho da imagem no banco de dados
+$id_usuario = $_SESSION['id'];
+$sql = "SELECT caminho_imagem FROM usuarios WHERE id = $id_usuario";
+$result = $mysqli->query($sql);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $caminho_imagem = $row['caminho_imagem'];
+} else {
+    $caminho_imagem = null;
+}
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +48,7 @@ if (!isset($_SESSION['nome'])) {
                     <!-- Lista de links de navegação -->
                     <ul class="ul">
                         <!-- Ícone de casa com link para a página inicial -->
-                        <li> <a href="/painel/painel.html"> <i class='bx bxs-home'></i> </a> </li>
+                        <li> <a href="../painel/painel.php"> <i class='bx bxs-home'></i> </a> </li>
                     </ul>
                 </nav>
                 <!-- Fim do container -->
@@ -54,15 +66,15 @@ if (!isset($_SESSION['nome'])) {
         <!-- caixa perfil -->
         <div class="box-profile">
             <div class="profile-img">
-                <i class='bx bx-user' id="user2"></i>
+                <?php if ($caminho_imagem): ?>
+                    <img src="<?php echo $caminho_imagem; ?>" alt="Imagem de Perfil" id="user2">
+                <?php else: ?>
+                    <i class='bx bx-user' id="user2"></i>
+                <?php endif; ?>
             </div>
             <div class="text-user">
-                <h2 style="color: black;"><?php
-                echo $_SESSION['nome'];
-                ?></h2>
-                <h3 style="color: black;"><?php
-                echo "ID: " . $_SESSION['id'];
-                ?></h3>
+                <h2 style="color: black;"><?php echo $_SESSION['nome']; ?></h2>
+                <h3 style="color: black;"><?php echo "ID: " . $_SESSION['id']; ?></h3>
             </div>
         </div>
         <!-- Fim caixa perfil -->
@@ -71,7 +83,7 @@ if (!isset($_SESSION['nome'])) {
         <!-- end line -->
         <!-- botões list -->
         <div class="buttons">
-            <button><a href="../perfil/perfil/perfil.php"><i class='bx bx-user'></i> Perfil</a></button>
+            <button><a href="../perfil/perfil.php"><i class='bx bx-user'></i> Perfil</a></button>
             <button><a href="../adicionar/add/add.php"><i class='bx bx-plus'></i> Adicionar Dados</a></button>
             <button><a href="../graficos/grafico.php"><i class='bx bx-chart'></i> Gráficos</a></button>
             <button><a href="../tabelas/tabelas.php"><i class='bx bx-table'></i> Tabelas</a></button>
@@ -86,22 +98,24 @@ if (!isset($_SESSION['nome'])) {
         <!-- caixa perfil -->
         <div class="box-profile2">
             <div class="profile-img2">
-                <i class='bx bx-user' id="user"></i>
+                <?php if ($caminho_imagem): ?>
+                    <img src="<?php echo $caminho_imagem; ?>" alt="Imagem de Perfil" id="user">
+                <?php else: ?>
+                    <i class='bx bx-user' id="user"></i>
+                <?php endif; ?>
             </div>
             <div class="text-user2">
-                <h2><?php
-                echo $_SESSION['nome'];
-                ?></h2>
-                <h4><?php
-                echo $_SESSION['id'];
-                ?></h4>
+                <h2><?php echo $_SESSION['nome']; ?></h2>
+                <h4><?php echo $_SESSION['id']; ?></h4>
             </div>
         </div>
         <div class="upload-button">
-            <label for="upload-input" class="upload-label"><button type="button">Adicionar imagem</button></label>
-            <input type="file" id="upload-input" accept="image/*" style="display: none;">
-            <i class='bx bx-upload' id="up"></i>
-        </div>        
+            <form action="upload_image.php" method="post" enctype="multipart/form-data">
+                <label for="upload-input" class="upload-label"><button type="button">Adicionar imagem</button></label>
+                <input type="file" id="upload-input" name="imagem" accept="image/*" style="display: none;">
+                <button type="submit">Upload</button>
+            </form>
+        </div>
         <!-- Fim caixa perfil -->
         <!-- line -->
         <hr class="line-menu">
@@ -116,7 +130,9 @@ if (!isset($_SESSION['nome'])) {
                         <div class="input-field">
                             <label for="nomeCompleto">Nome completo</label>
                             <div class="input-container">
-                                <input type="text" id="nomeCompleto" placeholder="Admin da Silva" disabled>
+                                <input type="text" id="nomeCompleto" placeholder="<?php
+                                echo $_SESSION['nome'];
+                                ?>" disabled>
                                 <button class="edit-btn"><i class='bx bx-edit'></i></button>
                             </div>
                         </div>
