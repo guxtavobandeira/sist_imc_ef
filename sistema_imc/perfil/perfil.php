@@ -1,65 +1,17 @@
-<?php
+<?php 
 include('../conexao.php');
 
-session_start(); // Inicia a sessão
+session_start(); // Start the session at the beginning of your script
 include('../protect.php');
 
 // Verifica se o usuário está logado
-if (isset($_SESSION['id']) && isset($_SESSION['nome'])) {
-
-    // Recebe o ID do usuário da sessão
-    $id_usuario = $_SESSION['id'];
-
-    // Consulta SQL para obter o email e a senha do usuário com base no ID
-    $query = "SELECT email, senha, telefone, genero, data_nascimento FROM usuarios WHERE id = ?";
-
-    // Preparar a consulta
-    if ($stmt = $mysqli->prepare($query)) {
-        $stmt->bind_param("i", $id_usuario);
-        $stmt->execute();
-        $resultado = $stmt->get_result();
-        
-        // Verifica se a consulta foi bem-sucedida
-        if ($resultado && $resultado->num_rows > 0) {
-            // Obtém os dados do usuário
-            $linha = $resultado->fetch_assoc();
-            $email = $linha['email'];
-            $senha = $linha['senha'];
-            $tel = $linha['telefone'];
-            $genero = $linha['genero'];
-            $data_n = $linha['data_nascimento'];
-        } else {
-            // Caso a consulta falhe, define valores padrão ou lida com o erro de outra forma
-            $email = "Não foi possível obter o email";
-            $senha = "Não foi possível obter a senha";
-        }
-        $stmt->close();
-    }
-
-    // Verifica se os dados foram enviados pelo formulário
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // Obtém os dados do formulário
-        $tel = $_POST['telefone'];
-        $genero = $_POST['genero_u'];
-        $data_n = $_POST['data'];
-
-        // Prevenir SQL Injection usando prepared statements para atualizar os dados do usuário
-        $stmt = $mysqli->prepare("UPDATE usuarios SET telefone = ?, genero = ?, data_nascimento = ? WHERE id = ?");
-        $stmt->bind_param("sssi", $tel, $genero, $data_n, $id_usuario);
-        $stmt->execute();
-        $stmt->close();
-
-        // Atualiza os valores das variáveis
-        $email = $linha['email'];
-        $senha = $linha['senha'];
-        $tel = $linha['telefone'];
-        $genero = $linha['genero'];
-        $data_n = $linha['data_nascimento'];
-    }
+if (!isset($_SESSION['nome'])) {
+    // Se não estiver logado, redireciona para a página de login
+    header("Location: login.php");
+    exit; // Encerra o script
 }
-// Fechar a conexão com o banco de dados
-$mysqli->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -70,7 +22,6 @@ $mysqli->close();
 
     <!-- Adiciona os ícones da Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
 </head>
 <body>
     <!-- NavBar -->
@@ -106,8 +57,12 @@ $mysqli->close();
                 <i class='bx bx-user' id="user2"></i>
             </div>
             <div class="text-user">
-                <h2>Admin da Silva</h2>
-                <h3>ID: 023534</h3>
+                <h2 style="color: black;"><?php
+                echo $_SESSION['nome'];
+                ?></h2>
+                <h3 style="color: black;"><?php
+                echo "ID: " . $_SESSION['id'];
+                ?></h3>
             </div>
         </div>
         <!-- Fim caixa perfil -->
@@ -116,12 +71,11 @@ $mysqli->close();
         <!-- end line -->
         <!-- botões list -->
         <div class="buttons">
-            <button><a href="/painel/Perfil/perfil.html"><i class='bx bx-user'></i> Perfil</a></button>
-            <button><a href="/painel/AdicionarDD/adicionar.html"><i class='bx bx-plus'></i> Adicionar Dados</a></button>
-            <button><a href="#"><i class='bx bx-chart'></i> Gráficos</a></button>
-            <button><a href="/painel/Tabelas/tabela-filter.html"><i class='bx bx-table'></i> Tabelas</a></button>
-            <button><a href="#"><i class='bx bx-cog'></i> Configurações</a></button>
-            <button><a href="/inicio/inicio.html"><span><i class='bx bx-log-out'></i>Sair</span></a></button>
+            <button><a href="../perfil/perfil/perfil.php"><i class='bx bx-user'></i> Perfil</a></button>
+            <button><a href="../adicionar/add/add.php"><i class='bx bx-plus'></i> Adicionar Dados</a></button>
+            <button><a href="../graficos/grafico.php"><i class='bx bx-chart'></i> Gráficos</a></button>
+            <button><a href="../tabelas/tabelas.php"><i class='bx bx-table'></i> Tabelas</a></button>
+            <button><a href="../logout.php"><span><i class='bx bx-log-out'></i>Sair</span></a></button>
         </div>
         <!-- end botões lst -->
     </section>
@@ -135,8 +89,12 @@ $mysqli->close();
                 <i class='bx bx-user' id="user"></i>
             </div>
             <div class="text-user2">
-                <h2>Admin da Silva</h2>
-                <h4>ID: 023534</h4>
+                <h2><?php
+                echo $_SESSION['nome'];
+                ?></h2>
+                <h4><?php
+                echo $_SESSION['id'];
+                ?></h4>
             </div>
         </div>
         <div class="upload-button">
@@ -207,4 +165,3 @@ $mysqli->close();
 
 </body>
 </html>
-
