@@ -1,8 +1,8 @@
-<?php 
-include('../conexao.php');
+<?php
+include ('../conexao.php');
 
 session_start(); // Start the session at the beginning of your script
-include('../protect.php');
+include ('../protect.php');
 
 // Verifica se o usuário está logado
 if (!isset($_SESSION['nome'])) {
@@ -11,14 +11,16 @@ if (!isset($_SESSION['nome'])) {
     exit; // Encerra o script
 }
 
-// Busca o caminho da imagem no banco de dados
+// Busca o caminho da imagem e os dados do usuário no banco de dados
 $id_usuario = $_SESSION['id'];
-$sql = "SELECT caminho_imagem FROM usuarios WHERE id = $id_usuario";
+$sql = "SELECT caminho_imagem, email, senha FROM usuarios WHERE id = $id_usuario";
 $result = $mysqli->query($sql);
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $caminho_imagem = $row['caminho_imagem'];
+    $_SESSION['email'] = $row['email'];
+    $_SESSION['senha'] = $row['senha'];
 } else {
     $caminho_imagem = null;
 }
@@ -26,6 +28,7 @@ if ($result->num_rows > 0) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +37,13 @@ if ($result->num_rows > 0) {
 
     <!-- Adiciona os ícones da Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery Mask Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 </head>
+
 <body>
     <!-- NavBar -->
     <div class="background-verde">
@@ -52,16 +61,16 @@ if ($result->num_rows > 0) {
                     </ul>
                 </nav>
                 <!-- Fim do container -->
-            </header>  
-            <!-- Fim do background-verde -->      
-        </div>
-        <!-- Linha decorativa -->
-        <hr class="line">
-        <!-- Fim da linha -->
+        </header>
+        <!-- Fim do background-verde -->
+    </div>
+    <!-- Linha decorativa -->
+    <hr class="line">
+    <!-- Fim da linha -->
 
-        <!-- Fim da NavBar -->
+    <!-- Fim da NavBar -->
 
-    <!-- Menu container -->    
+    <!-- Menu container -->
     <section class="menu-container">
         <!-- caixa perfil -->
         <div class="box-profile">
@@ -139,30 +148,36 @@ if ($result->num_rows > 0) {
                         <div class="input-field">
                             <label for="email">Email</label>
                             <div class="input-container">
-                                <input type="email" id="email" placeholder="AdminEEEP@gmail.com" disabled>
+                                <input type="email" id="email" placeholder="<?php echo $_SESSION['email']; ?>" disabled>
                                 <button class="edit-btn"><i class='bx bx-edit'></i></button>
                             </div>
                         </div>
                         <div class="input-field">
                             <label for="senha">Senha</label>
                             <div class="input-container">
-                                <input type="password" id="senha" placeholder="admin123" disabled>
+                                <input type="password" id="senha" placeholder="<?php echo $_SESSION['senha']; ?>"
+                                    disabled>
                                 <button class="edit-btn"><i class='bx bx-edit'></i></button>
                             </div>
                         </div>
                         <div class="input-field">
                             <label for="text">Gênero</label>
                             <select name="genero">
-                                <option value="#" disabled selected >Selecione uma opção</option>
-                                <option value="masculino">Masculino</option>
-                                <option value="feminino">Feminino</option>
+                                <option value="#" disabled selected>Selecione uma opção</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Feminino">Feminino</option>
                                 <option value="outro">outro</option>
                             </select>
                         </div>
                         <div class="input-field">
                             <label for="text">Número Telefone</label>
-                            <input type="text" placeholder="(88) 9 9999-999">
+                            <input type="text" id="telefone" placeholder="(88) 9 9999-999">
                         </div>
+                        <script>
+                            $(document).ready(function () {
+                                $('#telefone').mask('(00) 0 0000-0000');
+                            });
+                        </script>
                         <div class="input-field">
                             <label for="text">Data de nascimento</label>
                             <input type="date">
@@ -180,4 +195,5 @@ if ($result->num_rows > 0) {
     <script src="perfil.js"></script>
 
 </body>
+
 </html>
