@@ -48,8 +48,10 @@ include('../protect.php');
                 <i class='bx bx-user'></i>
             </div>
             <div class="text-user">
-                <h2>Admin da Silva</h2>
-                <h3>ID: 023534</h3>
+                <h2><?php echo
+                $_SESSION['nome'];?></h2>
+                <h3><?php echo "ID: " .
+                $_SESSION['id'];?></h3>
             </div>
         </div>
         <!-- Fim caixa perfil -->
