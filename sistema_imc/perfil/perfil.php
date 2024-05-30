@@ -130,9 +130,9 @@ if ($result->num_rows > 0) {
         <hr class="line-menu">
         <!-- end line -->
         <!-- Dados -->
-        <form action="#">
-            <div class="form-first">
-                <div class="dados">
+        <div class="form-first">
+            <div class="dados">
+                <form action="atualizar_dados.php" method="post">
                     <span class="title">Dados Pessoais</span>
 
                     <div class="fields">
@@ -162,7 +162,7 @@ if ($result->num_rows > 0) {
                         </div>
                         <div class="input-field">
                             <label for="text">Gênero</label>
-                            <select name="genero">
+                            <select name="genero" id="genero">
                                 <option value="#" disabled selected>Selecione uma opção</option>
                                 <option value="Masculino">Masculino</option>
                                 <option value="Feminino">Feminino</option>
@@ -171,7 +171,7 @@ if ($result->num_rows > 0) {
                         </div>
                         <div class="input-field">
                             <label for="text">Número Telefone</label>
-                            <input type="text" id="telefone" placeholder="(88) 9 9999-999">
+                            <input type="text" id="telefone" name="telefone" placeholder="(88) 9 9999-999">
                         </div>
                         <script>
                             $(document).ready(function () {
@@ -180,13 +180,13 @@ if ($result->num_rows > 0) {
                         </script>
                         <div class="input-field">
                             <label for="text">Data de nascimento</label>
-                            <input type="date">
+                            <input id="data_nascimento" name="data_nascimento" type="date">
                         </div>
                         <!-- button -->
                         <button type="submit">Salvar</button>
                     </div>
-                </div>
             </div>
+        </div>
         </form>
         <!-- end dados -->
     </section>
