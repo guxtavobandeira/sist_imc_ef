@@ -1,5 +1,5 @@
 <?php
-include('conexao.php');
+include('../conexao.php');
 // Supondo que você já tenha uma conexão com o banco de dados ($mysqli)
 if(isset($_GET['id_aluno'])) {
     $id_aluno = $_GET['id_aluno'];
