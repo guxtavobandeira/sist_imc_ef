@@ -1,5 +1,5 @@
 <?php
-include_once('conexao.php');
+include_once('../conexao.php');
 
 if (!empty($_GET['id_aluno'])) {
     $id = $_GET['id_aluno'];
