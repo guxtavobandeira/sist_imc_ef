@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:wght@300;400;700;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+:root{
+    --verde: rgb(0, 130, 65);
+    --amarelo: rgb(255, 200, 5);
+    --laranja: #ff7c37;
+    --laranja2: #f94600;
+    --degrade-btn: linear-gradient(#fe9611, #ff5c00);
+
+}
+
+.background-verde {
+    background: url('../imagens/bk-verde.jpg');
+    background-position: 98%;
+    max-width: 100%;
+    /* Adiciona flexbox para alinhar à direita */
+    margin-left: auto;
+}
+.line {
+    background: linear-gradient(to right, var(--laranja2), var(--amarelo), var(--laranja2));
+    height: 10px;
+    width: 100%;
+    border: none;
+}
+
+/* classe reutilizável */
+.container {
+    max-width: 1400px;
+    padding: 0 5%;
+    margin: 0 auto;
+}
+
+.btn-gradient {
+    padding: 10px 25px;
+    color: white;
+    background-image: var(--degrade-btn);
+    border: none;
+    border-radius: 3px;
+}
+.btn-gradient:hover{
+    transform: translateY(-2px);
+    transition: 0.2s;
+    cursor: pointer;
+}
+/* classes do site */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+
+}
+
+section,
+footer {
+    padding: 2.7rem 0;
+}
+
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+.ul {
+    display: flex;
+    align-items: center;
+}
+
+.ul li {
+    margin: 0 30px;
+    font-size: 15px;
+    color: white;
+    display: flex;
+}
+.ul li p {
+    color: white;
+    margin-right: 10px;
+    /* background: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ul li a {
+    color: white;
+
+}
+
+/* menu icon */
+.menu-icon {
+    display: none;
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.menu-icon img{
+    height: 40px;
+}
+
+/* end menu icon */
+
+/* main */
+main .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    margin-top: 30px;
+}
+
+main .container img {
+    height: 500px;
+}
+.main-img{
+    width: 50%;
+}
+
+.main-img img {
+    width: 100%;
+}
+
+.main-text {
+    width: 50%;
+}
+
+.main-text a{
+    color: white;
+}
+
+.main-text .btn-gradient {
+    margin-top: 1rem;
+}
+
+.main-text h1 {
+    font-size: 3.5rem;
+}
+/* section resultados */
+.resultados {
+    background: var(--amarelo);
+}
+.resultados .container{
+    display: flex;
+    justify-content: space-between;
+}
+.resultados .resultados-text {
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 600;
+    width: 100%;
+}
+
+.resultados .resultados-numero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.resultados .resultados-numero p{
+    text-align: center;
+    margin: 0 30px;
+    font-size: 20px;
+}
+.resultados .resultados-numero p span{
+    font-size: 30px;
+    font-weight: 600;
+}
+/* end section resultados */
+
+/* section informs */
+.informs .container{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px auto;
+    text-align: justify;
+}
+.informs .card .titulo{
+    margin: 13px 0;
+    font-weight: 600;
+}
+
+.informs .card{
+    width: 30%;
+    cursor: pointer;
+    padding: 30px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.informs .card:hover{
+    box-shadow: 0px 10px 67px 8px #e6e6fa85;
+}
+/* end section informs */
+
+/* footer */
+footer {
+    background: linear-gradient(to right, rgb(0,83,50), rgb(0,124,80));
+}
+footer .container{
+    display: flex;
+    color: white;
+}
+footer .container ul{
+    width: 50%;
+    /* background: red; */
+    margin: 12px;
+    text-align: justify;
+}
+footer .container a{
+    color: white;
+}
+footer .container i{
+    font-size: 25px;
+    font-weight: 500;
+}
+footer .container h3{
+    margin-bottom: 16px;
+    font-weight: 600;
+    
+}
+footer .container .redes-sociais img {
+    margin-right: 10px;
+    color: white;
+    height: 30px;
+    width: 30px;
+    filter: invert();
+}
+footer .container .redes-sociais img:hover{
+    cursor: pointer;
+}
+
+footer .container ul > p{
+    margin-bottom: 10px;
+}
+footer .container ul a:hover{
+    cursor: pointer;
+}
+footer .container ul .logoCE{
+    height: 50%;
+    width: 100%;
+    background-color: white;
+    padding: 30px 30px;
+}
+/* copyright */
+footer .copyright {
+    text-align: center;
+    padding: 10px 0;
+    /* background-color: #f1f1f1;  *//* Escolha a cor de fundo desejada */
+    font-size: 14px;
+    color: white; /* Escolha a cor do texto desejada */
+}
+/* end footer */
+
+/* responsivo */
+@media (max-width: 960px) {
+    .menu-icon {
+        display: block;
+    }
+    .ul {
+        position: fixed;
+        background: linear-gradient(to right, rgb(0,83,50), rgb(0,124,80));
+        top: 0;
+        width: 100%;
+        height: 100%;
+        left: 100%;
+        transition: 0.3s;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .ul li{
+        font-size: 20px;
+        margin: 20px 0;
+    }
+    .ul.ativo {
+        left: 0;
+    }
+
+    /* main */
+    main .container {
+        flex-direction: column;
+    }
+    main .container .main-img,
+    main .container .main-text {
+        width: 100%;
+        text-align: center;
+    }
+    main .container .main-text h1{
+        font-size: 4rem;
+    }
+    main .container .main-text div {
+        justify-content: center;
+    }
+    /* section resultados */
+    .resultados .container {
+        flex-direction: column;
+    }
+    .resultados-numero {
+        margin-top: 40px;
+    }
+    .resultados .resultados-text,
+    .resultados .resultados-numero {
+        width: 100%;
+        text-align: center;
+    }
+    /* section informs */
+    .informs .container{
+        flex-direction: column;
+    }
+    .informs .card{
+        width: 100%;
+    }
+    /* footer */
+    footer .container{
+        flex-direction: column;
+    }
+    footer .container ul{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .resultados .resultados-numero {
+        flex-direction: column;
+    }
+    main .container .main-text h1 {
+        font-size: 3rem;
+    }
+    footer .container ul{
+        margin: auto;
+        margin-bottom: 30px;
+    }
+}
