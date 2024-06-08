@@ -65,7 +65,7 @@ A página de preenchimento é uma área essencial do nosso sistema, projetada pa
 
 # Página de gráficos
 
-![8bc84137-969c-472e-af87-704f1279e350](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/c7bee76b-ef26-4b71-80e1-dbb37d3a0aa3)
+![WhatsApp Image 2024-06-08 at 18 01 15](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/72b52224-9e9f-46b8-94e9-93fe1161c425)
 
 A página de gráficos apresentamos uma variedade de gráficos que oferecem uma visão abrangente e detalhada dos dados cruciais relacionados aos nossos alunos. Explore nossos gráficos interativos para compreender melhor o perfil dos estudantes, identificar tendências e padrões significativos, e acompanhar o progresso ao longo do tempo.
 
