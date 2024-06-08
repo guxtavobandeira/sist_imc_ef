@@ -44,11 +44,12 @@ __Link para Login:__ No final do formulário de registro, há um link que direci
 
 # Página de preenchimento para aluno
 
-![433f99c3-9f4e-4e48-9e25-dede772d4599](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/06e73330-e255-4453-bf02-9448818d2654)
+![WhatsApp Image 2024-06-08 at 18 00 29](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/02347ae6-74b1-4fb1-b73c-5be264efb20f)
 
-![ad0a8251-60c3-4624-8668-0fbf7b2747ab](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/75c266bb-9a72-438b-b3bb-e51cf29f91fb)
+![WhatsApp Image 2024-06-08 at 18 00 54](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/45896fa2-78e6-4e13-b737-55f85e4b47f2)
 
-![b83cb660-e68c-44ec-8d4e-ac3d2344f297](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/85c95d33-0a5e-468a-9760-7fbb35f1ae7e)
+![WhatsApp Image 2024-06-08 at 18 01 15](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/eb2e7f94-ce6a-4c14-bf9e-38ac485eb54a)
+
 
 
 A página de preenchimento é uma área essencial do nosso sistema, projetada para fornecer aos alunos uma plataforma intuitiva e abrangente para gerenciar suas informações de saúde e bem-estar. Esta página centraliza uma variedade de funcionalidades fundamentais, oferecendo aos alunos controle total sobre seus perfis e dados.
