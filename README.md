@@ -22,9 +22,9 @@ A tela de início é o ponto de partida da nossa aplicação, onde os usuários 
 
 # Página de registro
 
-![80ae3bdf-fb8a-4503-b51f-57313c242337](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/c04a82cc-983e-464c-b1c2-88d71a9b2c3d)
+![WhatsApp Image 2024-06-08 at 17 59 45](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/33f82f5c-a426-498e-a68e-6056ec92ba26)
 
-![f0d143a6-5066-4414-9fa2-5fcebe4ce09d](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/a8385168-746c-4955-ae46-e7d47b8f00aa)
+![WhatsApp Image 2024-06-08 at 18 00 08](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/2467ba70-bd90-44b5-93a2-a5b9bce25139)
 
 A página de registro é onde os usuários podem criar uma nova conta para acessar os recursos da aplicação. Ao se registrar, os usuários devem fornecer as seguintes informações:
 
