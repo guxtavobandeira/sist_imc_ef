@@ -1,0 +1,593 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:wght@300;400;700;900&display=swap');
+
+/* Resetando estilos padrão */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+/* Estilos gerais do corpo do documento */
+body {
+    font-family: "Poppins", sans-serif;
+    background: var(--cinza);
+
+}
+
+/* Definição de variáveis de cores */
+:root{
+    --verde: rgb(0, 130, 65);
+    --amarelo: rgb(255, 200, 5);
+    --laranja: #ff7c37;
+    --laranja2: #f94600;
+    --degrade-btn: linear-gradient(#fe9611, #ff5c00);
+    --cinza: #e2e2e2;
+    --dkcinza: #333;
+}
+
+/* Classe para fundo verde */
+.background-verde {
+    background: url('../imagens/bk-verde.jpg') no-repeat;
+    background-position: 98%;
+    max-width: 80%;
+    /* Adiciona flexbox para alinhar à direita */
+    margin-left: auto;
+}
+
+
+/* Linha decorativa */
+.line {
+    background: linear-gradient(to right, var(--amarelo), var(--laranja2));
+    height: 20px;
+    width: 100%;
+    border: none;
+    max-width: 80%;
+    /* Adiciona flexbox para alinhar à direita */
+    margin-left: auto;
+    
+}
+/* Container Navbar */
+.nav-container {
+    max-width: 100%;
+    padding: 0 5%;
+    margin: 0 auto;
+}
+/* Classe reutilizável para container */
+.container {
+    max-width: 1400px;
+    padding: 0 5%;
+    margin: 0 auto;
+}
+
+/* Botão com gradiente */
+.btn-gradient {
+    padding: 10px 25px;
+    color: white;
+    background-image: var(--degrade-btn);
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilos específicos do cabeçalho */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+/* Estilos do logo */
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Estilos da lista de navegação */
+.ul {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos dos itens da lista de navegação */
+.ul li {
+    margin: 0 30px;
+    font-size: 15px;
+}
+
+/* Ícones da lista de navegação */
+.ul li i{
+    color: white ;
+    font-size: 2.5rem;
+}
+
+/* Efeito de hover nos ícones */
+.ul li i:hover{
+    cursor: pointer;
+}
+
+/* Estilos dos links da lista de navegação */
+.ul li a {
+    color: white;
+}
+
+/* section menu */
+.menu-container {
+    background: white;
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+    /* Alinha o elemento na lateral esquerda da tela */
+    left: 0;
+    /* Alinha o elemento com o topo da tela */
+    top: 0;
+    /* Alinha o elemento com a parte inferior da tela */
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Caixa perfil */
+.box-profile{
+    background: url('../imagens/bk-verde.jpg') no-repeat;
+    background-position: 78%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.profile-img{
+    height: 90px;
+    width: 90px;
+    background-color: #e2e2e2;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px var(--amarelo) solid;
+    margin-top: 20px;
+}
+.profile-img i {
+    font-size: 50px;
+}
+.text-user{
+    color: white;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
+}
+/* Fim Caixa perfil */
+/* upload button */
+.upload-button{
+    display: flex;
+    justify-content: center;
+    /* background-color: var(--cinza); */
+}
+.upload-button button, #up {
+    position: relative;
+    right: 180px;
+    margin-left: 10px;
+}
+#up {
+    font-size: 30px;
+    color: var(--verde);
+}
+/* Linha menu */
+.line-menu{
+    background: linear-gradient(to right, var(--laranja2), var(--amarelo), var(--laranja2));
+    height: 5px;
+    width: 100%;
+    border: none;
+    /* Adiciona flexbox para alinhar à direita */
+    margin-left: auto;
+}
+/* fim linha menu */
+/* Menu botões */
+.buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.buttons button {
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    /* Ajuste na posição do conteúdo para não estar centralizado verticalmente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.buttons :hover{
+    background: #e2e2e2;
+}
+/* Texto do botão */
+.buttons button a{
+    position: absolute;
+    color: var(--verde);
+    font-weight: 600;
+    font-size: 16px;
+    align-items: flex-start; /* Ajuste na posição do conteúdo para não estar centralizado verticalmente */
+    left: 20px;
+
+}
+/* botão sair vermelho */
+#sair {
+    color: red;
+}
+/* fim Section Menu */
+
+/* Main container */
+.main-container {
+    max-width: 77%;
+    margin: 20px;
+    margin-left: 20px;
+    background-color: white;
+     /* Adiciona flexbox para alinhar à direita */
+    margin-left: auto;
+    height: calc(100vh - 40px); /* Altura ajustada para preencher o espaço disponível na tela */
+    border-radius: 40px;
+    box-shadow: 0px 5px 30px 2px rgb(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+/* end main container */
+/* profile edit*/
+.main-container .box-profile2 {
+    /* background: var(--cinza); */
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    margin: 10px 5%;
+    justify-content: center;
+    margin-top: 20px;
+}
+.profile-img2{
+    height: 160px;
+    width: 160px;
+    background-color: #e2e2e2;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px var(--amarelo) solid;
+    
+}
+.profile-img2 i {
+    font-size: 100px;
+}
+.text-user2{
+    color: black;
+    font-size: 2rem;
+    margin-top: 10px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.main-container .line-menu {
+    margin-top: 20px;
+}
+/* Fim Caixa perfil */
+/* end profile edit */
+
+/* form */
+.main-container form {
+    position: relative;
+    margin-top: 16px;
+    min-height: 10%;
+    max-width: 95%;
+    width: 100%;
+    /* background-color: var(--laranja); */
+    margin: 20px auto;
+    
+    
+}
+
+.main-container form .dateils {
+    margin-top: 10px;
+}
+
+.main-container form .title {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: var(--verde);
+}
+
+.main-container form .fields {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+form .fields .input-field {
+    display: flex;
+    width: calc(100% / 3 - 15px);
+    flex-direction: column;
+    margin: 4px 0;
+
+}
+
+.input-field label{
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--dkcinza);
+}
+.input-field input, select {
+    padding: 0 15px;
+    outline: none;
+    font-weight: 400;
+    color: var(--dkcinza);
+    border: 1px solid #aaa;
+    font-size: 14px;
+    border-radius: 5px;
+    margin: 9px 0;
+    height: 42px;
+}
+.input-field input:is(:focus, :valid){
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+/* inputs edit */
+.input-container {
+    display: flex;
+    align-items: center;
+}
+#nomeCompleto, #email, #senha {
+    width: 100%;
+}
+.input-field .edit-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 5px; /* Espaçamento entre o input e o botão */
+}
+/* Estilos para destacar o input em edição */
+.input-field input.editing {
+    border-color: var(--verde); /* Muda a cor da borda */
+    box-shadow: 0 0 5px rgba(0, 130, 65, 0.5); /* Adiciona uma sombra */
+}
+/* end inputs edit */
+.main-container form button{
+    margin-top: 20px;
+    color: var(--verde);
+    font-weight: 600;
+    font-size: 16px;
+    align-items: flex-start;
+    left: 20px;
+    padding: 10px 15px;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+
+}
+.main-container form button:hover{
+    transform: translateY(-2px);
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+
+/* Media queries para diferentes tamanhos de tela */
+
+/* RESPONSIVIDADE INDIVIDUAL */
+@media screen and (max-width:768px) {
+    .main-container form {
+        position: relative;
+        margin-top: 16px;
+        height: 100%; /* Ajusta a altura máxima para caber na tela */
+        max-width: 100%;
+        width: 100%;
+    }
+    .main-container form::-webkit-scrollbar {
+        display: none;
+    }
+    form .fields .input-field {
+        width: calc(100% - 20px); /* Ajusta a largura dos campos para uma coluna */
+        margin: 10px auto; /* Centraliza os campos e adiciona margem */
+    }
+    .main-container form button {
+        margin: 20px auto;
+        display: block;
+    }
+    .main-container {
+        max-width: calc(100% - 40px); /* Ajusta a largura do contêiner */
+        padding: 0 20px;
+        margin: 20px auto;
+        height: auto; /* Remove a altura fixa */
+    }
+    .text-user2{
+        font-size: 1.6rem;
+    }
+}
+
+/* RESPONSIVIDADE PADRÃO */
+@media screen and (max-width: 1200px) {
+    .background-verde {
+        max-width: 75%;
+    }
+    .line {
+        max-width: 75%;
+    }
+    /* section menu */
+    .menu-container {
+        width: 25%;
+    }
+    /* Main container */
+    .main-container {
+        max-width: 70%; /* Reduz a largura máxima para telas de até 900px */
+    }
+}
+
+/* Funções Menu */
+/* Estilos do ícone de menu */
+.menu-icon {
+    display: none; /* Ícone não visível em telas maiores que 768px */
+}
+/* Ícone de setinha para fechar o menu */
+.close-menu-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 50px;
+    color: white;
+    cursor: pointer;
+    display: none; /* Inicialmente escondido */
+}
+
+/* Mostra a setinha quando o menu estiver aberto */
+.menu-container.open .close-menu-icon {
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+    .background-verde {
+        max-width: 100%;
+        margin-left: auto;
+    }
+    /* Linha decorativa */
+    .line {
+        max-width: 100%;
+    }
+    .menu-icon {
+        display: block;
+        font-weight: 600;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+    }
+    .menu-container {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        transform: translateX(-100%);
+        transition: transform 0.8s ease-in-out;
+    }
+    .menu-container.open {
+        display: flex;
+        width: 100%; /* A largura que o menu ocupará quando aberto */
+        height: 100vh;
+        position: fixed;
+        z-index: 999;
+        background: white;
+        transform: translateX(0);
+    }
+    .buttons button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+    }
+    .buttons button a {
+        left: 0; /* Remove ajuste para centralizar o texto */
+        text-align: center; /* Centraliza o texto */
+        width: 100%; /* Faz o link ocupar toda a largura do botão */
+        font-size: 20px;
+    }
+    /* Main container */
+    .main-container {
+        max-width: 90%;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        height: calc(100% - 50px); /* Altura ajustada para preencher o espaço disponível na tela */
+    }
+    
+}
+
+@media screen and (max-width: 630px) {
+    .main-container {
+        max-width: 95%; /* Reduz ainda mais a largura máxima para telas de até 630px */
+    }
+    .main-container .box-profile2 {
+        flex-direction: column;
+    }
+    .profile-img2 {
+        margin-bottom: 10px;
+    }
+    .text-user2 {
+        text-align: center; /* Centraliza o texto */
+    }
+}
+@media screen and (max-width: 430px) {
+    .logo {
+        font-size: 25px;
+    }
+    .menu-icon {
+        font-size: 30px;
+    }
+    .ul {
+        font-size: 10px;
+    }
+    .text-user2{
+        font-size: 1.4rem;
+    }
+}
+@media screen and (max-width: 380px) {
+    .main-container {
+        max-width: 90%; /* Para telas muito estreitas, ocupar 100% do espaço disponível */
+        border-radius: 20px; /* Reduz a borda para telas muito estreitas */
+    }
+    .text-user2{
+        font-size: 1.2rem;
+    }
+}
+
+/* REDIMENSIONAMENTO DA IMAGEM DE PERFIL */
+.profile-img, .profile-img2 {
+    position: relative;
+    width: 100px; /* Altere conforme necessário */
+    height: 100px; /* Altere conforme necessário */
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0; /* Cor de fundo se desejar */
+}
+
+.profile-img img, .profile-img2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.profile-img i, .profile-img2 i {
+    font-size: 50px; /* Ajuste conforme necessário */
+    color: #666; /* Cor do ícone */
+}
+
+.upload-button {
+    margin-top: 20px;
+}
+
+.upload-button button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.upload-button button:hover {
+    background-color: #218838;
+}
+
+.upload-button input[type="file"] {
+    display: none;
+}
