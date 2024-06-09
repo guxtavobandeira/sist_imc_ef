@@ -1,0 +1,20 @@
+<table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Peso</th>
+                        <th>Altura</th>
+                        <th>Curso</th>
+                        <th>Série</th>
+                        <th>Gênero</th>
+                        <th>Data de Nascimento</th>
+                        <th>Circunferência</th>
+                        <th>IMC</th>
+                        <th>IAC</th>
+                        <th>Resultado IMC</th>
+                        <th>Resultado IAC</th>
+                        <th>Data de Cadastro</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                </table>
