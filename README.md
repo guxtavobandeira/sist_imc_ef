@@ -140,7 +140,7 @@ A página de tabelas é uma ferramenta centralizada e abrangente que permite aos
 * __Nome:__ O nome completo do aluno, utilizado para identificação.
 * __Peso:__ O peso atual do aluno, registrado em quilogramas.
 * __Altura:__ A altura do aluno, registrada em metros.
-* __Curso:__ O curso ou disciplina em que o aluno está matriculado.
+* __Curso:__ O curso em que o aluno está matriculado.
 * __Série:__ A série ou nível escolar do aluno.
 * __Gênero:__ O gênero do aluno, utilizado para análises demográficas e de saúde.
 * __Data de Nascimento:__ A data de nascimento do aluno, utilizada para calcular a idade.
