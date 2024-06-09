@@ -16,6 +16,11 @@ Junte-se a nós nesta jornada em direção a uma vida mais saudável e feliz!
 - JavaScript
 - PHP
 
+## 🙍 Desenvolvedores:
+- Back-end: [![GitHub](https://img.shields.io/badge/GitHub-gustavobandeira-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/guxtavobandeira)
+- Front-end: [![GitHub](https://img.shields.io/badge/GitHub-kauasilva-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Kauto22)
+
+
 ## 🏠 Tela de Início
 
 ![Tela de Início](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/21bdc0f6-8e9e-4e92-99c0-28512dd5c944)
