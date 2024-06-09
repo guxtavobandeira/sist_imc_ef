@@ -1,6 +1,3 @@
- <div align="center">
-  <img src="" alt="Sistema IMC & IAC" width="500" height="auto">
-</div>
 
 # 📊 Sistema de Monitoramento (IMC e IAC) para o site da EEEP Manoel Mano
 🚧 **Projeto README em construção** 🚧
