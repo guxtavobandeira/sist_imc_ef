@@ -214,7 +214,7 @@ span {
     background-color: white;
      /* Adiciona flexbox para alinhar à direita */
     margin-left: auto;
-    height: calc(100vh - 40px); /* Altura ajustada para preencher o espaço disponível na tela */
+    height: calc(100% - 40px); /* Altura ajustada para preencher o espaço disponível na tela */
     border-radius: 40px;
     box-shadow: 0px 5px 30px 2px rgb(0, 0, 0, 0.2);
     display: flex;
