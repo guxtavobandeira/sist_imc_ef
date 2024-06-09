@@ -131,6 +131,26 @@ A página de gráficos oferece uma visão abrangente dos dados cruciais relacion
 
 ![IAC por Curso](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/3bdb172f-ff95-4a5e-bf55-de6e7195492d)
 
+## Página tabela - alunos
+
+![6aa29f58-97aa-4187-8c43-bc25c7d476b0](https://github.com/guxtavobandeira/sist_imc_ef/assets/129344687/26b592e5-79dd-411a-8dd6-6246d63db75c)
+
+A página de tabelas é uma ferramenta centralizada e abrangente que permite aos alunos e administradores visualizarem e gerenciarem informações detalhadas relacionadas à saúde e bem-estar dos alunos. Esta página exibe uma tabela completa contendo os seguintes dados essenciais:
+
+* __Nome:__ O nome completo do aluno, utilizado para identificação.
+* __Peso:__ O peso atual do aluno, registrado em quilogramas.
+* __Altura:__ A altura do aluno, registrada em metros.
+* __Curso:__ O curso ou disciplina em que o aluno está matriculado.
+* __Série:__ A série ou nível escolar do aluno.
+* __Gênero:__ O gênero do aluno, utilizado para análises demográficas e de saúde.
+* __Data de Nascimento:__ A data de nascimento do aluno, utilizada para calcular a idade.
+* __Circunferência:__ A circunferência corporal do aluno, um dado importante para calcular o Índice de Adiposidade Corporal (IAC).
+* __IMC:__ O Índice de Massa Corporal (IMC) do aluno, calculado com base na altura e peso.
+* __IAC:__ O Índice de Adiposidade Corporal (IAC) do aluno, calculado com base na altura e circunferência.
+* __Resultados IMC:__ A interpretação dos valores de IMC, indicando se o aluno está abaixo do peso, com peso normal, sobrepeso ou obesidade.
+* __Resultados IAC:__ A interpretação dos valores de IAC, fornecendo insights sobre a adiposidade corporal.
+* __Data de Cadastro:__ A data em que os dados do aluno foram cadastrados no sistema.
+
 ## 💬 Contribuições
 Estamos sempre abertos a contribuições! Sinta-se à vontade para abrir uma issue ou enviar um pull request com sugestões de melhorias ou novas funcionalidades.
 
