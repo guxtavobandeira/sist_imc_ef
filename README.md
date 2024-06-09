@@ -1,6 +1,4 @@
-
 # 📊 Sistema de Monitoramento (IMC e IAC) para o site da EEEP Manoel Mano
-🚧 **Projeto README em construção** 🚧
 
 > **Bem-vindo ao projeto da Escola Manoel Mano!** Aqui, mergulhamos em uma jornada de autoconhecimento e saúde através da Calculadora de IMC e IAC. Este projeto foi criado para fornecer aos alunos uma ferramenta interativa e educativa para entenderem melhor seus corpos, promovendo uma vida mais saudável e consciente.
 
