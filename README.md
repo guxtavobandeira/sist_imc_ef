@@ -15,7 +15,7 @@ Junte-se a nós nesta jornada em direção a uma vida mais saudável e feliz!
 - PHP
 
 ## 🙍 Desenvolvedores:
-- Scrum-Master's:
+- Scrum-Master's: [![GitHub](https://img.shields.io/badge/GitHub-mylenacarvalho-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Mylenacm) [![GitHub](https://img.shields.io/badge/GitHub-juliabatista-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Juliabarros-info)
 - Back-end: [![GitHub](https://img.shields.io/badge/GitHub-gustavobandeira-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/guxtavobandeira)
 - Front-end: [![GitHub](https://img.shields.io/badge/GitHub-kauasilva-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Kauto22)
 - Readme: [![GitHub](https://img.shields.io/badge/GitHub-PedroWesley-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/byID887766pedro)
